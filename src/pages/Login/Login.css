@@ -1,0 +1,55 @@
+.login-title {
+  font-family: "Georama", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  color: #5f7d63;
+}
+
+.login-field {
+    margin-top: 1rem;
+  background-color: white;
+  padding: 0.75rem 1.125rem;
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+}
+
+.login-field input {
+  border: 0;
+  outline: none;
+  margin-left: 0.75rem;
+  font-family: "Faustina" serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: black;
+}
+
+.login-field input::placeholder {
+  color: #a59591;
+}
+
+.login-button-container {
+    width: 100%;
+    text-align: center;
+}
+
+.login-button {
+margin-top: 2rem;
+  background: #5f7d63;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #f2f7f9;
+  padding: 10px 50px;
+  border: none;
+}
