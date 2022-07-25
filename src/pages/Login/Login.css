@@ -1,8 +1,5 @@
-.login-page-header{
-
-}
-
-.login-title {
+.header__title {
+  padding-top:0;
   font-family: "Georama", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -10,10 +7,14 @@
   line-height: 33px;
   text-align: center;
   color: #5f7d63;
+  padding-bottom: 5rem;
 }
-
-.login-field {
-    margin-top: 1rem;
+.main{
+  padding-left: 13rem;
+  padding-right: 13rem;
+}
+.email, .password {
+  position: relative;
   width: 44.625rem ;
   background-color: white;
   padding: 0.75rem 1.125rem;
@@ -21,8 +22,11 @@
   display: flex;
   align-items: center;
 }
+.email{
+  margin-bottom: 3rem;
+}
 
-.login-field input {
+.email input, .password input {
   border: 0;
   outline: none;
   margin-left: 0.75rem;
@@ -33,11 +37,22 @@
   line-height: 30px;
   color: black;
 }
+.email-icon{
+  font-size: 1.5rem;
+}
+.password-icon{
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
 
-.login-field input::placeholder {
+.email input::placeholder, .password input::placeholder {
   color: #a59591;
 }
 .login-options-container{
+  margin-top:1.5rem;
+  margin-bottom: 6.125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,12 +81,9 @@
 
 .logged-container{
   display: flex;
+  align-items: center;
 }
 
-.logged-container input[type="checkbox"]{
-  background: #A59591;
-  border-radius: 50%;
-}
 
 .logged-container a{
   text-decoration: none;
@@ -84,7 +96,10 @@
 }
 
 .login-button {
-margin-top: 2rem;
+  display:block;
+  width: fit-content;
+  margin-left:auto;
+  margin-right:auto;
   background: #5f7d63;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
@@ -99,10 +114,6 @@ margin-top: 2rem;
   border: none;
 }
 
-
-.login-page-footer{
-
-}
 
 .login-page-footer p {
   font-family: 'Faustina';
@@ -125,3 +136,33 @@ margin-top: 2rem;
 
 }
 
+.login-page-footer{
+  margin-bottom: 6.25rem;
+}
+
+
+input[type=checkbox] {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	outline: none;
+	content: none;	
+}
+
+input[type=checkbox]:before {
+	 
+    content: "X";
+    font-size:2.18rem;
+    color: transparent !important;
+    background: rgba(217, 217, 217, 0.9);
+    display: block;
+    width: 2.18rem;
+    height: 2.18rem;
+    border: 0.3rem solid #A59591;
+    border-radius: 10%;
+}
+
+input[type=checkbox]:checked:before {
+
+	color: black !important;
+}
