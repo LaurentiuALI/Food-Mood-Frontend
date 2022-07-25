@@ -1,3 +1,7 @@
+.login-page-header{
+
+}
+
 .login-title {
   font-family: "Georama", sans-serif;
   font-style: normal;
@@ -21,7 +25,7 @@
   border: 0;
   outline: none;
   margin-left: 0.75rem;
-  font-family: "Faustina" serif;
+  font-family: "Faustina", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -31,6 +35,39 @@
 
 .login-field input::placeholder {
   color: #a59591;
+}
+.login-options-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-options-container p{
+  font-family: 'Faustina';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  text-align: center;
+  color: #7A3C2A;
+}
+.login-options-container a{
+  font-family: 'Faustina';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  text-align: center;
+  color: #7A3C2A;
+  text-decoration: none;
+}
+
+.logged-container{
+  display: flex;
+}
+
+.logged-container a{
+  text-decoration: none;
 }
 
 .login-button-container {
@@ -53,3 +90,30 @@ margin-top: 2rem;
   padding: 10px 50px;
   border: none;
 }
+
+
+.login-page-footer{
+
+}
+
+.login-page-footer p {
+  font-family: 'Faustina';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  text-align: center;
+  color: #7A3C2A;
+}
+
+.login-page-footer a{
+  font-family: 'Faustina';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  text-align: center;
+  color: #7A3C2A;
+
+}
+
