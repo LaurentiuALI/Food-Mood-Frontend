@@ -5,8 +5,8 @@ import { MailOutlined, UnlockOutlined } from "@ant-design/icons";
 import axios from "axios";
 
 export const Login = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   // const onLogin2 = async () => {
   //   const reponse = await axios.post("http://localhost:3000/auth/login", {
