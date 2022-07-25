@@ -14,6 +14,7 @@
 
 .login-field {
     margin-top: 1rem;
+  width: 44.625rem ;
   background-color: white;
   padding: 0.75rem 1.125rem;
   border-radius: 0.625rem;
@@ -53,22 +54,29 @@
 }
 .login-options-container a{
   font-family: 'Faustina';
+  text-decoration: none;
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.875rem;
   text-align: center;
   color: #7A3C2A;
-  text-decoration: none;
+
 }
 
 .logged-container{
   display: flex;
 }
 
+.logged-container input[type="checkbox"]{
+  background: #A59591;
+  border-radius: 50%;
+}
+
 .logged-container a{
   text-decoration: none;
 }
+
 
 .login-button-container {
     width: 100%;
