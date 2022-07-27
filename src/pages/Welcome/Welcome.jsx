@@ -1,13 +1,13 @@
 import React from "react";
 import "./Welcome.css";
 import { Link } from "react-router-dom";
-import { Layout } from "antd";
-import { Content, Footer, Header } from "antd/lib/layout/layout";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
 
-export const Welcome = () => {
-// const Welcome = () => {
+import { Layout } from "antd";
+import { Content, Footer, Header } from "antd/lib/layout/layout";
+
+const Welcome = () => {
   return (
     <BackgroundTemplate>
       <ContainerBox>
@@ -32,4 +32,4 @@ export const Welcome = () => {
   );
 };
 
-// export default Welcome;
+export default Welcome;
