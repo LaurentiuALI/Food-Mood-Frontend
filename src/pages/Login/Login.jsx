@@ -24,17 +24,31 @@ import ContainerBox from "../../common/templates/ContainerBox";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [seePasword, setSeePassword] = useState(false);
+  const [user, setUser] = useState();
+  const [isChecked, setIsChecked] = useState(false);
+
+  const keepUserLoggedIn = (e) => {
+    console.log(`isChecked = ${e.target.checked}`);
+    setIsChecked((prevState) => !prevState);
+    console.log(`Set checked state to ${isChecked}`);
+  };
 
   const onLogin = () => {
+    const user = { email, password };
+
     axios
       .post("http://localhost:3000/auth/login", {
-        email: email,
-        password: password,
+        email,
+        password,
       })
       .then((response) => {
         console.log("Success");
         console.log(response.data);
+        if (isChecked) {
+          console.log("Keep the user logged");
+          setUser(response.data);
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
       })
       .catch((e) => {
         console.log("Error");
@@ -43,12 +57,17 @@ export const Login = () => {
   };
 
   useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
     const keyDownHandler = (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
-        SubmitEvent;
       }
     };
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+      console.log(foundUser);
+    }
     document.addEventListener("keydown", keyDownHandler);
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
@@ -91,6 +110,7 @@ export const Login = () => {
                     />
                   }
                   placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Form.Item>
               <Form.Item
@@ -101,6 +121,7 @@ export const Login = () => {
               >
                 <Input.Password
                   className="password"
+                  onChange={(e) => setPassword(e.target.value)}
                   prefix={
                     <LockOutlined
                       style={{ color: "#A59591" }}
@@ -127,11 +148,17 @@ export const Login = () => {
 
               <Form.Item className="login-options-container">
                 <Form.Item name="remember" valuePropName="checked" noStyle>
-                  <Checkbox>Remember me</Checkbox>
+                  <Checkbox
+                    checked={isChecked}
+                    defaultChecked={false}
+                    onChange={(e) => keepUserLoggedIn(e)}
+                  >
+                    Remember me
+                  </Checkbox>
                 </Form.Item>
 
                 <Link className="login-form-forgot" to={"/forgot-password"}>
-                  Forgot password
+                  Trouble logging in?
                 </Link>
               </Form.Item>
 

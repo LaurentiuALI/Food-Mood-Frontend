@@ -175,7 +175,3 @@ input[type="checkbox"]:checked:before {
   color: black !important;
 }
 
-.unChecked {
-  width: 1rem;
-  height: 1rem;
-} */
