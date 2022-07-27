@@ -7,8 +7,6 @@
   margin-bottom: 3rem;
 }
 
-.main-layout {
-}
 .header__title {
   padding-top: 0;
   font-family: "Georama", sans-serif;
@@ -34,9 +32,6 @@
   display: flex;
   align-items: center;
 }
-/* .email {
-  margin-bottom: 3rem;
-} */
 
 .email input,
 .password input {
@@ -142,7 +137,7 @@
   color: #7a3c2a;
 }
 
-.login-page-footer {
+/* .login-page-footer {
 }
 
 input[type="checkbox"] {
@@ -172,4 +167,4 @@ input[type="checkbox"]:checked:before {
 .unChecked {
   width: 1rem;
   height: 1rem;
-}
+} */
