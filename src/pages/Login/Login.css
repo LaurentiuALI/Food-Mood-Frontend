@@ -3,8 +3,12 @@
   justify-content: center;
 }
 .ant-form-item-explain-error {
-  color: red;
-  margin-bottom: 3rem;
+  color: #d94216;
+  font-size: 1.5rem;
+}
+
+.back-icon {
+  font-size: 1.5rem;
 }
 
 .header__title {
@@ -33,6 +37,10 @@
   align-items: center;
 }
 
+.password {
+  margin-top: 3rem;
+}
+
 .email input,
 .password input {
   border: 0;
@@ -48,6 +56,9 @@
 }
 .email-icon,
 .password-icon {
+  font-size: 1.5rem;
+}
+.ant-input-suffix {
   font-size: 1.5rem;
 }
 

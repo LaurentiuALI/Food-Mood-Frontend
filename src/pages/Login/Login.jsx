@@ -11,6 +11,7 @@ import {
   EyeTwoTone,
   BorderOutlined,
   CheckSquareOutlined,
+  EyeInvisibleTwoTone,
 } from "@ant-design/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -23,6 +24,7 @@ import ContainerBox from "../../common/templates/ContainerBox";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [seePasword, setSeePassword] = useState(false);
 
   const onLogin = () => {
     axios
@@ -58,7 +60,13 @@ export const Login = () => {
       <ContainerBox>
         <Layout>
           <Header>
-            <LeftOutlined style={{ color: "#5F7D63" }} />
+            <Link to={"/"}>
+              {" "}
+              <LeftOutlined
+                className="back-icon"
+                style={{ color: "#5F7D63" }}
+              />
+            </Link>
             <Title className="header__title">LOG IN</Title>
           </Header>
 
@@ -101,8 +109,18 @@ export const Login = () => {
                   }
                   type="password"
                   placeholder="Password"
-                  suffix={(visible) =>
-                    visible ? <EyeInvisibleOutlined /> : <EyeOutlined />
+                  iconRender={(visible) =>
+                    visible ? (
+                      <EyeInvisibleTwoTone
+                        className="password-icon-suffix"
+                        twoToneColor="#A59591"
+                      />
+                    ) : (
+                      <EyeTwoTone
+                        twoToneColor="#A59591"
+                        className="password-icon"
+                      />
+                    )
                   }
                 />
               </Form.Item>
