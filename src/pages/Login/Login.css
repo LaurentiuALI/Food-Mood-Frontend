@@ -1,5 +1,16 @@
+.content-container {
+  display: flex;
+  justify-content: center;
+}
+.ant-form-item-explain-error {
+  color: red;
+  margin-bottom: 3rem;
+}
+
+.main-layout {
+}
 .header__title {
-  padding-top:0;
+  padding-top: 0;
   font-family: "Georama", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -9,25 +20,28 @@
   color: #5f7d63;
   padding-bottom: 5rem;
 }
-.main{
+.main {
   padding-left: 13rem;
   padding-right: 13rem;
 }
-.email, .password {
+.email,
+.password {
   position: relative;
-  width: 44.625rem ;
+  width: 44.625rem;
   background-color: white;
   padding: 0.75rem 1.125rem;
   border-radius: 0.625rem;
   display: flex;
   align-items: center;
 }
-.email{
+/* .email {
   margin-bottom: 3rem;
-}
+} */
 
-.email input, .password input {
+.email input,
+.password input {
   border: 0;
+  width: 100%;
   outline: none;
   margin-left: 0.75rem;
   font-family: "Faustina", serif;
@@ -37,69 +51,63 @@
   line-height: 30px;
   color: black;
 }
-.email-icon{
-  font-size: 1.5rem;
-}
-.password-icon{
-  position: absolute;
-  right: 0;
-  margin: 1rem;
+.email-icon,
+.password-icon {
   font-size: 1.5rem;
 }
 
-.email input::placeholder, .password input::placeholder {
+.email input::placeholder,
+.password input::placeholder {
   color: #a59591;
 }
-.login-options-container{
-  margin-top:1.5rem;
+
+.login-options-container {
+  margin-top: 1.5rem;
   margin-bottom: 6.125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.login-options-container p{
-  font-family: 'Faustina';
+.login-options-container span {
+  font-family: "Faustina";
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.875rem;
   text-align: center;
-  color: #7A3C2A;
+  color: #7a3c2a;
 }
-.login-options-container a{
-  font-family: 'Faustina';
+.login-options-container a {
+  font-family: "Faustina";
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.875rem;
   text-align: center;
-  color: #7A3C2A;
-
+  color: #7a3c2a;
 }
 
-.logged-container{
+.logged-container {
   display: flex;
   align-items: center;
 }
 
-
-.logged-container a{
+.logged-container a {
   text-decoration: none;
 }
 
-
 .login-button-container {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .login-button {
-  display:block;
+  display: block;
   width: fit-content;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   background: #5f7d63;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
@@ -114,55 +122,54 @@
   border: none;
 }
 
-
-.login-page-footer p {
-  font-family: 'Faustina';
+.login-page-footer span {
+  font-family: "Faustina";
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.875rem;
   text-align: center;
-  color: #7A3C2A;
+  color: #7a3c2a;
 }
 
-.login-page-footer a{
-  font-family: 'Faustina';
+.login-page-footer a {
+  font-family: "Faustina";
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.875rem;
   text-align: center;
-  color: #7A3C2A;
-
+  color: #7a3c2a;
 }
 
-.login-page-footer{
-  margin-bottom: 6.25rem;
+.login-page-footer {
 }
 
-
-input[type=checkbox] {
-	-moz-appearance:none;
-	-webkit-appearance:none;
-	-o-appearance:none;
-	outline: none;
-	content: none;	
+input[type="checkbox"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  outline: none;
+  content: none;
 }
 
-input[type=checkbox]:before {
-	 
-    content: "X";
-    font-size:2.18rem;
-    color: transparent !important;
-    background: rgba(217, 217, 217, 0.9);
-    display: block;
-    width: 2.18rem;
-    height: 2.18rem;
-    border: 0.3rem solid #A59591;
-    border-radius: 10%;
+input[type="checkbox"]:before {
+  content: "X";
+  font-size: 2.18rem;
+  color: transparent !important;
+  background: rgba(217, 217, 217, 0.9);
+  display: block;
+  width: 2.18rem;
+  height: 2.18rem;
+  border: 0.3rem solid #a59591;
+  border-radius: 10%;
 }
 
-input[type=checkbox]:checked:before {
+input[type="checkbox"]:checked:before {
+  color: black !important;
+}
 
-	color: black !important;
+.unChecked {
+  width: 1rem;
+  height: 1rem;
 }

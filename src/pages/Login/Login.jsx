@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AuthTemplate } from "../../common/templates/AuthTemplate";
 import "./Login.css";
-import { MailOutlined, UnlockOutlined, LeftOutlined, EyeOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  MailOutlined,
+  UnlockOutlined,
+  LeftOutlined,
+  LockOutlined,
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+  BorderOutlined,
+  CheckSquareOutlined,
+} from "@ant-design/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Content, Footer, Header } from "antd/lib/layout/layout";
+import { Layout, Input, Checkbox, Form, Button, Typography } from "antd";
+const { Title, Text } = Typography;
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,55 +39,98 @@ export const Login = () => {
       });
   };
 
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        SubmitEvent;
+      }
+    };
+    document.addEventListener("keydown", keyDownHandler);
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
+
   return (
     <AuthTemplate>
-      <header className="header">
-        <LeftOutlined style={{ color: "#5F7D63" }} />
-        <h1 className="header__title">Login</h1>
-      </header>
+      <Layout>
+        <Header>
+          <LeftOutlined style={{ color: "#5F7D63" }} />
+          <Title className="header__title">LOG IN</Title>
+        </Header>
 
+        <Content className="content-container">
+          <Form
+            name="normal_login"
+            className="login-form"
+            initialValues={{ remember: true }}
+          >
+            <Form.Item
+              name="Email"
+              rules={[{ required: true, message: "Please input your Email!" }]}
+            >
+              <Input
+                className="email"
+                prefix={
+                  <MailOutlined
+                    className="email-icon"
+                    style={{ color: "#A59591" }}
+                  />
+                }
+                placeholder="Email"
+              />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[
+                { required: true, message: "Please input your Password!" },
+              ]}
+            >
+              <Input.Password
+                className="password"
+                prefix={
+                  <LockOutlined
+                    style={{ color: "#A59591" }}
+                    className="password-icon"
+                  />
+                }
+                type="password"
+                placeholder="Password"
+                suffix={(visible) =>
+                  visible ? <EyeInvisibleOutlined /> : <EyeOutlined />
+                }
+              />
+            </Form.Item>
 
+            <Form.Item className="login-options-container">
+              <Form.Item name="remember" valuePropName="checked" noStyle>
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
 
-      <main className="main">
-        <div className="email">
-          <MailOutlined className="email-icon" style={{ color: "#A59591" }} />
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-        </div>
-      <div className="password">
-        <UnlockOutlined style={{ color: "#A59591"}} />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <EyeOutlined className="password-icon" style={{ color: "#A59591"}}/>
-      </div>
-      <div className="login-options-container">
-        <div className="logged-container">
-          <input type="checkbox" className="logged-checkbox"/>
-          <p>Keep me signed in</p>
-        </div>
-        <Link to="/recovery">Trouble logging in?</Link>
-      </div>
-      <button className="login-button" onClick={onLogin}>
-        Log In
-      </button>
-      </main>
+              <Link className="login-form-forgot" to={"/forgot-password"}>
+                Forgot password
+              </Link>
+            </Form.Item>
 
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="login-button"
+                onClick={onLogin}
+              >
+                Log in
+              </Button>
+            </Form.Item>
+          </Form>
+        </Content>
 
-      <footer className="login-page-footer">
-        <div className="login-button-container">
-          <p>
-            You don't have an account yet? {<Link to="/register">Sign Up</Link>}
-          </p>
-        </div>
-      </footer>
+        <Footer className="login-page-footer">
+          <Text>You don't have an account yet?</Text>{" "}
+          <Link to={"/register"}>Sign up!</Link>
+        </Footer>
+      </Layout>
     </AuthTemplate>
   );
 };
