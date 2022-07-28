@@ -21,10 +21,8 @@ export const Login = () => {
   const [user, setUser] = useState();
   const [isChecked, setIsChecked] = useState(false);
 
-  const keepUserLoggedIn = (e) => {
-    console.log(`isChecked = ${e.target.checked}`);
+  const keepUserLoggedIn = () => {
     setIsChecked((prevState) => !prevState);
-    console.log(`Set checked state to ${isChecked}`);
   };
 
   const onLogin = () => {
@@ -62,7 +60,7 @@ export const Login = () => {
       setUser(foundUser);
       console.log(foundUser);
 
-      // TO-DO -> Navigate to another page with
+      // TO-DO -> Navigate to another page if you have a token
     }
     document.addEventListener("keydown", keyDownHandler);
     return () => {
@@ -143,12 +141,8 @@ export const Login = () => {
               </Form.Item>
 
               <Form.Item className="login-options-container">
-                <Form.Item name="remember" valuePropName="checked" noStyle>
-                  <Checkbox
-                    checked={isChecked}
-                    defaultChecked={false}
-                    onChange={(e) => keepUserLoggedIn(e)}
-                  >
+                <Form.Item name="remember" noStyle>
+                  <Checkbox checked={isChecked} onChange={keepUserLoggedIn}>
                     Remember me
                   </Checkbox>
                 </Form.Item>
