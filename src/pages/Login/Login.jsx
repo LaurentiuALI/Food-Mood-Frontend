@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import {
-  UserOutlined,
   MailOutlined,
-  UnlockOutlined,
   LeftOutlined,
   LockOutlined,
-  EyeOutlined,
-  EyeInvisibleOutlined,
   EyeTwoTone,
-  BorderOutlined,
-  CheckSquareOutlined,
   EyeInvisibleTwoTone,
 } from "@ant-design/icons";
 import axios from "axios";
@@ -67,6 +61,8 @@ export const Login = () => {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
       console.log(foundUser);
+
+      // TO-DO -> Navigate to another page with
     }
     document.addEventListener("keydown", keyDownHandler);
     return () => {
