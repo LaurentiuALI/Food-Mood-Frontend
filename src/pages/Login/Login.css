@@ -1,50 +1,28 @@
-.content-container {
+.ant-layout-header{
+  line-height: 0 !important;
+  padding: 0 !important;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding-bottom: 8rem!important;
 }
-.ant-form-item-explain-error {
-  color: #d94216;
+.header__title{
+  font-size:1.5rem!important;
+  font-weight: 700!important;
+}
+.back-icon{
+  font-size:1.5rem;
+}
+.email-icon,
+.password-icon {
   font-size: 1.5rem;
 }
-
-.back-icon {
+.ant-input-suffix {
   font-size: 1.5rem;
 }
-
-.header__title {
-  padding-top: 0;
-  font-family: "Georama", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 33px;
-  text-align: center;
-  color: #5f7d63;
-  padding-bottom: 5rem;
-}
-.main {
-  padding-left: 13rem;
-  padding-right: 13rem;
-}
-.email,
-.password {
-  position: relative;
-  width: 44.625rem;
-  background-color: white;
-  padding: 0.75rem 1.125rem;
-  border-radius: 0.625rem;
-  display: flex;
-  align-items: center;
-}
-
-.password {
-  margin-top: 3rem;
-}
-
 .email input,
 .password input {
   border: 0;
-  width: 100%;
+  width: 44.625rem;
   outline: none;
   margin-left: 0.75rem;
   font-family: "Faustina", serif;
@@ -54,124 +32,3 @@
   line-height: 30px;
   color: black;
 }
-.email-icon,
-.password-icon {
-  font-size: 1.5rem;
-}
-.ant-input-suffix {
-  font-size: 1.5rem;
-}
-
-.email input::placeholder,
-.password input::placeholder {
-  color: #a59591;
-}
-
-.login-options-container {
-  margin-top: 1.5rem;
-  margin-bottom: 6.125rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.login-options-container span {
-  font-family: "Faustina";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.875rem;
-  text-align: center;
-  color: #7a3c2a;
-}
-.login-options-container a {
-  font-family: "Faustina";
-  text-decoration: none;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.875rem;
-  text-align: center;
-  color: #7a3c2a;
-}
-
-.logged-container {
-  display: flex;
-  align-items: center;
-}
-
-.logged-container a {
-  text-decoration: none;
-}
-
-.login-button-container {
-  width: 100%;
-  text-align: center;
-}
-
-.login-button {
-  display: block;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  background: #5f7d63;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: center;
-  color: #f2f7f9;
-  padding: 10px 50px;
-  border: none;
-}
-
-.login-page-footer span {
-  font-family: "Faustina";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.875rem;
-  text-align: center;
-  color: #7a3c2a;
-}
-
-.login-page-footer a {
-  font-family: "Faustina";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.875rem;
-  text-align: center;
-  color: #7a3c2a;
-}
-
-/* .login-page-footer {
-}
-
-input[type="checkbox"] {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -o-appearance: none;
-  outline: none;
-  content: none;
-}
-
-input[type="checkbox"]:before {
-  content: "X";
-  font-size: 2.18rem;
-  color: transparent !important;
-  background: rgba(217, 217, 217, 0.9);
-  display: block;
-  width: 2.18rem;
-  height: 2.18rem;
-  border: 0.3rem solid #a59591;
-  border-radius: 10%;
-}
-
-input[type="checkbox"]:checked:before {
-  color: black !important;
-}
-

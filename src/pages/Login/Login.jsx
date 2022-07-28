@@ -4,8 +4,8 @@ import {
   MailOutlined,
   LeftOutlined,
   LockOutlined,
-  EyeTwoTone,
-  EyeInvisibleTwoTone,
+  EyeOutlined,
+  EyeInvisibleOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -78,7 +78,10 @@ export const Login = () => {
               />
             </Link>
             <Title className="header__title">LOG IN</Title>
+            <div></div>
           </Header>
+
+
 
           <Content className="content-container">
             <Form
@@ -126,12 +129,12 @@ export const Login = () => {
                   }}
                   iconRender={(visible) =>
                     visible ? (
-                      <EyeInvisibleTwoTone
+                      <EyeInvisibleOutlined
                         className="password-icon-suffix"
                         twoToneColor="#A59591"
                       />
                     ) : (
-                      <EyeTwoTone
+                      <EyeOutlined
                         twoToneColor="#A59591"
                         className="password-icon"
                       />

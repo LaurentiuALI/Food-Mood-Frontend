@@ -1,19 +1,19 @@
 .container-box {
-  background: rgba(217, 217, 217, 0.6);
+  background: rgba(217, 217, 217, 0.8);
   border-radius: 50px;
   padding: 2rem 3rem;
 }
-
+/* 
 .main-layout {
   display: flex;
   flex: auto;
   flex-direction: column;
   min-height: 47.5rem;
-  min-width: 68.75rem;
+  min-width: 68.75rem; */
   /* background: rgba(217, 217, 217, 0.6); */
-  border-radius: 3.125rem;
-}
-.main-layout {
+  /* border-radius: 3.125rem; */
+/* }
+/* .main-layout {
   box-sizing: border-box;
 }
 
@@ -61,5 +61,5 @@
   text-decoration: none;
   color: #7a3c2a;
   margin-left: 1.25rem;
-}
-/* LAYOUT */
+} */
+
