@@ -25,6 +25,12 @@ export const Login = () => {
     setIsChecked((prevState) => !prevState);
   };
 
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      console.log("Enter was pressed");
+    }
+  };
+
   const onLogin = () => {
     const user = { email, password };
 
@@ -50,22 +56,13 @@ export const Login = () => {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
-    const keyDownHandler = (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-      }
-    };
+
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
       console.log(foundUser);
-
-      // TO-DO -> Navigate to another page if you have a token
     }
-    document.addEventListener("keydown", keyDownHandler);
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
+    // TO-DO -> Navigate to another page if you have a token
   }, []);
 
   return (
@@ -124,6 +121,9 @@ export const Login = () => {
                   }
                   type="password"
                   placeholder="Password"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") onLogin();
+                  }}
                   iconRender={(visible) =>
                     visible ? (
                       <EyeInvisibleTwoTone
@@ -155,7 +155,7 @@ export const Login = () => {
               <Form.Item>
                 <Button
                   type="primary"
-                  htmlType="submit"
+                  // htmlType="submit"
                   className="login-button"
                   onClick={onLogin}
                 >
