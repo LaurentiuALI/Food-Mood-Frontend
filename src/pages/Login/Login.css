@@ -19,6 +19,31 @@
 .ant-input-suffix {
   font-size: 1.5rem;
 }
+.ant-form-item-control-input-content{
+  display: flex;
+  justify-content: space-between;
+}
+.ant-form-item-control-input-content button{
+  display: flex;
+}
+.submit-button-div{
+  display: flex;
+  justify-content: space-around;
+
+}
+.ant-row ant-form-item{
+  display: flex;
+  align-items: center;
+}
+
+.ant-layout-footer{
+  display: flex;
+  justify-content: space-evenly;
+}
+.sign-up-link{
+  font-weight: bold;
+}
+
 .email input,
 .password input {
   border: 0;

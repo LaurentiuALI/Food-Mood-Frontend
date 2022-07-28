@@ -146,22 +146,25 @@ export const Login = () => {
                   Trouble logging in?
                 </Link>
               </Form.Item>
-
-              <Form.Item>
-                <Button
-                  type="primary"
-                  className="login-button"
-                  onClick={onLogin}
-                >
-                  Log in
-                </Button>
-              </Form.Item>
+              <div className="submit-button-div">
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    className="login-button"
+                    onClick={onLogin}
+                  >
+                    Log in
+                  </Button>
+                </Form.Item>
+              </div>
             </Form>
           </Content>
 
           <Footer className="login-page-footer">
             <Text>You don't have an account yet?</Text>{" "}
-            <Link to={"/register"}>Sign up!</Link>
+            <div className="sign-up-link">
+              <Link to={"/register"}>Sign up!</Link>
+            </div>
           </Footer>
         </Layout>
       </ContainerBox>
