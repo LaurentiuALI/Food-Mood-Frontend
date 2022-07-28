@@ -25,12 +25,6 @@ export const Login = () => {
     setIsChecked((prevState) => !prevState);
   };
 
-  const handleEnterKey = (e) => {
-    if (e.key === "Enter") {
-      console.log("Enter was pressed");
-    }
-  };
-
   const onLogin = () => {
     const user = { email, password };
 
@@ -80,8 +74,6 @@ export const Login = () => {
             <Title className="header__title">LOG IN</Title>
             <div></div>
           </Header>
-
-
 
           <Content className="content-container">
             <Form
@@ -158,7 +150,6 @@ export const Login = () => {
               <Form.Item>
                 <Button
                   type="primary"
-                  // htmlType="submit"
                   className="login-button"
                   onClick={onLogin}
                 >
