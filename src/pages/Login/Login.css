@@ -9,12 +9,24 @@
 }
 
 .login-field {
-    margin-top: 1rem;
+  margin-top: 1rem;
   background-color: white;
   padding: 0.75rem 1.125rem;
   border-radius: 0.625rem;
   display: flex;
   align-items: center;
+
+  /* & input {
+    border: 0;
+    outline: none;
+    margin-left: 0.75rem;
+    font-family: "Faustina" serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: black;
+  } */
 }
 
 .login-field input {
@@ -34,12 +46,12 @@
 }
 
 .login-button-container {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .login-button {
-margin-top: 2rem;
+  margin-top: 2rem;
   background: #5f7d63;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;

@@ -8,11 +8,12 @@ import {
 import { Button, Form, Input, Layout, Typography } from "antd";
 import { Content, Footer, Header } from "antd/lib/layout/layout";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import "antd/dist/antd.css";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
+// import axios from "axios";
 
 const { Title } = Typography;
 
@@ -49,19 +50,45 @@ const { Title } = Typography;
 // };
 
 const Register = () => {
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
   const [password, setPassword] = useState();
 
-  const onRegister = (values) => {
-    console.log(email, password);
-    console.log("Received values of form: ", values);
+  const navigate = useNavigate();
+
+  // const onRegister = () => {
+  //   axios
+  //     .post("http://localhost:3000/auth/register", {
+  //       name: name,
+  //       email: email,
+  //       phoneNumber: phone,
+  //       password: password,
+  //     })
+  //     .then((response) => {
+  //       console.log("Success");
+  //       console.log(response.data);
+  //       // 👇️ redirect to /preferences
+  //       navigate('/preferences');
+  //     })
+  //     .catch((e) => {
+  //       console.log("Error");
+  //       console.log(e);
+  //     });
+  // };
+
+  // test without create a new user
+  const onRegister = (data) => {
+    console.log(data);
+    // 👇️ redirect to /preferences
+    navigate("/preferences");
   };
 
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
+  // const onRegister = (values) => {
+  //   console.log("Received values of form: ", values);
+  // };
 
   return (
     <BackgroundTemplate>
@@ -73,7 +100,7 @@ const Register = () => {
                 <LeftOutlined />
               </Link>
             </div>
-            <Title level={3}>SIGN UP</Title>
+            <Title level={4}>SIGN UP</Title>
             <div className="main-layout-header-right"></div>
           </Header>
           <Content className="main-layout-content">
@@ -81,7 +108,7 @@ const Register = () => {
               // {...formItemLayout}
               form={form}
               name="register"
-              onFinish={onFinish}
+              onFinish={onRegister}
               scrollToFirstError
             >
               <Form.Item
@@ -93,6 +120,8 @@ const Register = () => {
                     // whitespace: true,
                   },
                 ]}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               >
                 <Input prefix={<UserOutlined />} placeholder="Name" />
               </Form.Item>
@@ -122,13 +151,13 @@ const Register = () => {
               <Form.Item
                 name="phone"
                 rules={[
-
                   {
                     required: true,
-                    // type: "number",
                     message: "Please enter enter a valid phone number.",
                   },
                 ]}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               >
                 <Input
                   className="form-item-icon"
@@ -141,13 +170,16 @@ const Register = () => {
               <Form.Item
                 name="password"
                 rules={[
-                  { min: 6, max: 16, message: 'Your password must be between 6 - 16 characters long.' },
+                  {
+                    min: 6,
+                    max: 16,
+                    message:
+                      "Your password must be between 6 - 16 characters long.",
+                  },
                   {
                     required: true,
-                    message:
-                      "Please enter your password.",
+                    message: "Please enter your password.",
                   },
-                  
                 ]}
                 // hasFeedback
                 value={password}
@@ -200,11 +232,6 @@ const Register = () => {
             </Form>
           </Content>
           <Footer className="main-layout-footer">
-            {/* <div className="login-button-container">
-              <button className="login-button" onClick={onRegister}>
-                Next
-              </button>
-            </div> */}
             <div>
               Already registred?
               <Link to="/login">Log In</Link>

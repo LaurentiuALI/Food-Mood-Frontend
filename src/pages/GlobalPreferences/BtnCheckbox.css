@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* font-family: "Segoe UI", sans-serif; */
+  }
+
+  .checkbox-wrapper {
+    border-bottom: 1px solid #c6c6c6;
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-wrapper:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  
+  .checkbox-wrapper label {
+    font-family: "Faustina", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  label + p {
+    color: grey;
+  }
+  
+  /* Customizing the checkbox */
+  .checkbox-wrapper input[type="checkbox"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 0.15em;
+    margin-right: 0.5em;
+    border: 0.15em solid #a59591;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  input.checked {
+    background-color: #a59591;
+    position: relative;
+  }
+  
+  input.checked::before {
+    content: "\2714";
+    font-size: 1.5em;
+    color: #fff;
+    position: absolute;
+    right: 1px;
+    top: -5px;
+  }
+  
+  /* input:checked {
+    background-color: #007a7e;
+    position: relative;
+  }
+  
+  input:checked::before {
+    content: "\2714";
+    font-size: 1.5em;
+    color: #fff;
+    position: absolute;
+    right: 1px;
+    top: -5px;
+  } */
+  
+  input:checked {
+    background-color: #a59591;
+    position: relative;
+  }
+  
+  input:checked::before {
+    content: "\2714";
+    font-size: 1.5em;
+    color: #fff;
+    position: absolute;
+    right: 1px;
+    top: -5px;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"]:disabled {
+    border-color: #c0c0c0;
+    background-color: #c0c0c0;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"]:disabled + span {
+    color: #c0c0c0;
+  }
+  
+  /* .checkbox-wrapper input[type="checkbox"]:focus {
+    box-shadow: 0 0 20px #A59591;
+  } */
+  
+  .chk {
+    margin: 0.625rem 0.938rem;
+    background-color: #f2f7f9;
+    border-radius: 1.25rem;
+    /* border: 1px solid #fff; */
+    overflow: hidden;
+    float: left;
+  }
+  
+  .chk label {
+    /* float: left; */
+    width: 6.25rem;
+    height: 1.25rem;
+  }
+  
+  .chk label span {
+    text-align: center;
+    padding: 0.188rem 0;
+    display: block;
+  }
+  
+  .chk label input {
+    position: absolute;
+    display: none;
+  }
+  
+  .chk label input + span {
+    /* color: red;  */
+  }
+  
+  .chk input:checked + span {
+    /* color: blue; */
+    /* text-shadow: 0 0 6px rgba(0, 0, 0, 0.8); */
+  }
+  
+  .button input:checked + span {
+    background-color: #faedcd;
+  }
