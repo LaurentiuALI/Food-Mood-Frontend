@@ -8,18 +8,21 @@ import {
   EyeInvisibleOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Content, Footer, Header } from "antd/lib/layout/layout";
 import { Layout, Input, Checkbox, Form, Button, Typography } from "antd";
 const { Title, Text } = Typography;
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
 
+
+
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
   const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
 
   const keepUserLoggedIn = () => {
     setIsChecked((prevState) => !prevState);
@@ -36,11 +39,13 @@ export const Login = () => {
       .then((response) => {
         console.log("Success");
         console.log(response.data);
+        navigate("/preferences", {replace:true});
         if (isChecked) {
           console.log("Keep the user logged");
           setUser(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
         }
+        
       })
       .catch((e) => {
         console.log("Error");
