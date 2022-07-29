@@ -15,8 +15,6 @@ const { Title, Text } = Typography;
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
 
-
-
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,27 +37,30 @@ export const Login = () => {
       .then((response) => {
         console.log("Success");
         console.log(response.data);
-        sessionStorage.setItem('user', JSON.stringify(response.data));
+        sessionStorage.setItem("user", JSON.stringify(response.data));
         if (isChecked) {
           localStorage.setItem("user", JSON.stringify(response.data));
           setUser(response.data);
         }
-        navigate("/preferences", {replace:true});
-        
+        navigate("/preferences", { replace: true });
       })
       .catch((e) => {
         console.log("Error");
         console.log(e);
       });
   };
+  useEffect(() => {
+    // Check if you have a token in sessionStorage
+  });
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
+    const localLoggedInUser = localStorage.getItem("user");
+    const sessionLoggedInUser = sessionStorage.getItem("user");
 
-
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
+    if (localLoggedInUser || sessionLoggedInUser) {
+      const foundUser = JSON.parse(localLoggedInUser);
       setUser(foundUser);
+      navigate("/preferences", { replace: true });
       console.log(foundUser);
     }
   }, [isChecked]);
