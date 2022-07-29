@@ -151,12 +151,6 @@ export const Login = () => {
                   <Button
                     type="primary"
                     className="login-button"
-                    style={{
-                      width: "200px",
-                      fontFamily: "Inter",
-                      fontSize: "normal",
-                      textAlign: "center",
-                    }}
                     onClick={onLogin}
                   >
                     Log in

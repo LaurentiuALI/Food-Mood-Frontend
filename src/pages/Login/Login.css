@@ -5,6 +5,14 @@
   justify-content: space-between;
   padding-bottom: 8rem!important;
 }
+.login-button{
+  width: 200px;
+  font-family: Inter, serif;
+  font-weight: 200;
+  text-align: center;
+  vertical-align: middle;
+
+}
 .header__title{
   font-size:1.5rem!important;
   font-weight: 700!important;
@@ -23,16 +31,14 @@
   display: flex;
   justify-content: space-between;
 }
-.ant-form-item-control-input-content button{
-  display: flex;
-}
+
 .submit-button-div{
   display: flex;
   justify-content: space-around;
   text-align: center;
-
 }
-.ant-row ant-form-item{
+
+.ant-row {
   display: flex;
   align-items: center;
 }
