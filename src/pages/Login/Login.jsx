@@ -39,12 +39,12 @@ export const Login = () => {
       .then((response) => {
         console.log("Success");
         console.log(response.data);
-        navigate("/preferences", {replace:true});
+        sessionStorage.setItem('user', JSON.stringify(response.data));
         if (isChecked) {
-          console.log("Keep the user logged");
-          setUser(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
+          setUser(response.data);
         }
+        navigate("/preferences", {replace:true});
         
       })
       .catch((e) => {
@@ -56,13 +56,13 @@ export const Login = () => {
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
 
+
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
       console.log(foundUser);
     }
-    // TO-DO -> Navigate to another page if you have a token
-  }, []);
+  }, [isChecked]);
 
   return (
     <BackgroundTemplate>
