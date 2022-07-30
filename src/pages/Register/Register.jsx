@@ -9,45 +9,13 @@ import { Button, Form, Input, Layout, Typography } from "antd";
 import { Content, Footer, Header } from "antd/lib/layout/layout";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Register.css";
-import "antd/dist/antd.css";
+// import { Link } from "react-router-dom";
+import "./Register.less";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
 // import axios from "axios";
 
 const { Title } = Typography;
-
-// const formItemLayout = {
-//   // labelCol: {
-//   //   xs: {
-//   //     span: 24,
-//   //   },
-//   //   sm: {
-//   //     span: 8,
-//   //   },
-//   // },
-//   wrapperCol: {
-//     xs: {
-//       span: 0,
-//     },
-//     sm: {
-//       span: 0,
-//     },
-//   },
-// };
-
-// const tailFormItemLayout = {
-//   wrapperCol: {
-//     xs: {
-//       span: 24,
-//       offset: 0,
-//     },
-//     sm: {
-//       span: 16,
-//       offset: 8,
-//     },
-//   },
-// };
 
 const Register = () => {
   const [name, setName] = useState();
@@ -66,29 +34,48 @@ const Register = () => {
   //       password: password,
   //     })
   //     .then((response) => {
-  //       console.log("Success");
-  //       console.log(response.data);
+  //       console.log("Success ✅");
+  //       console.log(response);
+  //       // 👇️ clearing input values after submit
+  //       form.resetFields();
   //       // 👇️ redirect to /preferences
-  //       navigate('/preferences');
+  //       // navigate('/preferences');
   //     })
-  //     .catch((e) => {
-  //       console.log("Error");
-  //       console.log(e);
+  //     // .catch((e) => {
+  //     //   console.log("e");
+  //     //   console.log(e);
+  //     //   // const errStatusCode = e.response.data.statusCode;
+  //     //   // console.log("Status Code: ", e.response.data.statusCode);
+  //     //   // console.log("Message lenghth: ", e.response.data.message.length);
+  //     //   // console.log("Messages: ", e.response.data.message);
+  //     // });
+  //     .catch(function (error) {
+  //       if (error.response) {
+  //         console.log(error.response.data);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
   //     });
   // };
 
   // test without create a new user
   const onRegister = (data) => {
-    console.log(data);
+    console.log("✅ Success:", data);
     // 👇️ redirect to /preferences
     navigate("/preferences");
+    // 👇️ clearing input values after submit
+    form.resetFields();
+  };
+
+  // const onRegister = (values) => {
+  //   console.log('Received values of form: ', values);
+  // };
+
+  const onRegisterFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   const [form] = Form.useForm();
-
-  // const onRegister = (values) => {
-  //   console.log("Received values of form: ", values);
-  // };
 
   return (
     <BackgroundTemplate>
@@ -97,18 +84,37 @@ const Register = () => {
           <Header className="main-layout-header">
             <div className="main-layout-header-left">
               <Link to="/">
-                <LeftOutlined />
+                <LeftOutlined
+                  style={{
+                    color: "#5F7D63",
+                    stroke: "#5F7D63",
+                    strokeWidth: "100",
+                  }}
+                />
               </Link>
             </div>
-            <Title level={4}>SIGN UP</Title>
-            <div className="main-layout-header-right"></div>
+            <Title
+              level={3}
+              style={{
+                fontFamily: "Georama",
+                fontStyle: "normal",
+                fontWeight: "700",
+              }}
+            >
+              SIGN UP
+            </Title>
+            <div className="main-layout-header-right">&nbsp;</div>
           </Header>
-          <Content className="main-layout-content">
+          <Content
+            className="main-layout-content"
+            style={{ textAlign: "left" }}
+          >
             <Form
-              // {...formItemLayout}
               form={form}
               name="register"
               onFinish={onRegister}
+              onFinishFailed={onRegisterFailed}
+              // autoComplete="off"
               scrollToFirstError
             >
               <Form.Item
@@ -117,7 +123,6 @@ const Register = () => {
                   {
                     required: true,
                     message: "Please enter a name.",
-                    // whitespace: true,
                   },
                 ]}
                 value={name}
@@ -181,7 +186,6 @@ const Register = () => {
                     message: "Please enter your password.",
                   },
                 ]}
-                // hasFeedback
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               >
@@ -194,7 +198,6 @@ const Register = () => {
               <Form.Item
                 name="confirm"
                 dependencies={["password"]}
-                // hasFeedback
                 rules={[
                   {
                     required: true,
@@ -221,10 +224,18 @@ const Register = () => {
                 />
               </Form.Item>
 
-              {/* <Form.Item {...tailFormItemLayout}> */}
-              <Form.Item>
+              <Form.Item style={{ marginBottom: "0rem" }}>
                 <div className="register-button-container">
-                  <Button type="primary" htmlType="submit">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    style={{
+                      fontFamily: "Inter",
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      width: "7.5rem",
+                    }}
+                  >
                     Next
                   </Button>
                 </div>
@@ -232,10 +243,8 @@ const Register = () => {
             </Form>
           </Content>
           <Footer className="main-layout-footer">
-            <div>
-              Already registred?
-              <Link to="/login">Log In</Link>
-            </div>
+            <div>Already registred?</div>
+            <Link to="/login">Log In</Link>
           </Footer>
         </Layout>
       </ContainerBox>

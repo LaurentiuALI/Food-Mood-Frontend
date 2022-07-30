@@ -1,17 +1,89 @@
-@import 'antd/es/style/themes/default.less';
-@import 'antd/dist/antd.less';
+@import "antd/es/style/themes/default.less";
+@import "antd/dist/antd.less";
 
-@primary-color: #2bff18; // primary color for all components
-@link-color: #1890ff; // link color
+@primary-color: #00000067; // primary color for all components
+@link-color: #7a3c2a; // link color
+@link-hover-color: none;
 @success-color: #52c41a; // success state color
 @warning-color: #faad14; // warning state color
-@error-color: #f5222d; // error state color
+@error-color: #d94216; // error state color
 @font-size-base: 14px; // major text font size
-@heading-color: rgba(0, 0, 0, 0.85); // heading text color
-@text-color: rgba(0, 0, 0, 0.65); // major text color
+@heading-color: #5f7d63; // heading text color
+@text-color: #7a3c2a; // major text color
 @text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
 @disabled-color: rgba(0, 0, 0, 0.25); // disable state color
 @border-radius-base: 2px; // major border radius
 @border-color-base: #d9d9d9; // major border color
-@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-  0 9px 28px 8px rgba(0, 0, 0, 0.05); // major shadow for layers
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+  0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05); // major shadow for layers
+
+// Base Scaffolding Variables
+// ---
+@font-family: 'Faustina';
+@border-radius-base: 5px;
+// @icon-color: inherit;
+@icon-color: #A59591;
+// >>> Error
+@error-color: #D94216;
+
+// Layout
+@layout-body-background: none;
+@layout-header-background: none;
+
+@layout-header-height: 30px;
+@layout-header-padding: 5px 10px;
+@layout-header-color: #5f7d63;
+@layout-footer-padding: 5px 10px;
+
+// Typography
+// ---
+@typography-title-font-weight: 400;
+@typography-title-margin-top: none;
+@typography-title-margin-bottom: none;
+
+// Input
+// ---
+// @input-height-base: @height-base;
+// @input-height-lg: @height-lg;
+// @input-height-sm: @height-sm;
+// @input-padding-horizontal: @control-padding-horizontal - 1px;
+// @input-padding-horizontal-base: @input-padding-horizontal;
+// @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
+// @input-padding-horizontal-lg: @input-padding-horizontal;
+// @input-padding-vertical-base: max(
+//   (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) -
+//     @border-width-base,
+//   3px
+// );
+// @input-padding-vertical-sm: max(
+//   (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) -
+//     @border-width-base,
+//   0
+// );
+// @input-padding-vertical-lg: (
+//     ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
+//   ) - @border-width-base;
+@input-placeholder-color: #a59591;
+@input-color: #000000;
+@input-icon-color: #a59591;
+@input-border-color: none;
+@input-bg: #f2f7f9;
+// @input-number-hover-border-color: @input-hover-border-color;
+// @input-number-handler-active-bg: #f4f4f4;
+// @input-number-handler-hover-bg: @primary-5;
+// @input-number-handler-bg: @component-background;
+// @input-number-handler-border-color: @border-color-base;
+// @input-addon-bg: @background-color-light;
+@input-hover-border-color: none;
+// @input-disabled-bg: @disabled-bg;
+// @input-outline-offset: 0 0;
+// @input-icon-hover-color: fade(@black, 85%);
+// @input-disabled-color: @disabled-color;
+
+// Buttons
+@btn-border-radius-base: 20px;
+@btn-primary-color: #F2F7F9;
+@btn-primary-bg: #5F7D63;
+
+
+
