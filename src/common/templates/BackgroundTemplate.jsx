@@ -1,5 +1,5 @@
 import React from "react";
-import "./BackgroundTemplate.css"
+import "./BackgroundTemplate.less"
 
 const BackgroundTemplate = (props) => {
   return (
