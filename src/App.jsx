@@ -6,7 +6,7 @@ import { Login } from "./pages/Login/Login"
 import Register from "./pages/Register/Register";
 import GlobalPreferences from "./pages/GlobalPreferences/GlobalPreferences";
 import Home from "./pages/Home/Home";
-import Test from "./pages/Test/Test";
+// import Test from "./pages/Test/Test";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/preferences" element={<GlobalPreferences />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/test" element={<Test />} />
+        {/* <Route path="/test" element={<Test />} /> */}
       </Routes>
     </div>
   );
