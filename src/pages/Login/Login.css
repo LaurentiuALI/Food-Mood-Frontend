@@ -1,67 +1,69 @@
-.login-title {
-  font-family: "Georama", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 33px;
-  text-align: center;
-  color: #5f7d63;
+.ant-layout-header{
+  line-height: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8rem!important;
 }
 
-.login-field {
-  margin-top: 1rem;
-  background-color: white;
-  padding: 0.75rem 1.125rem;
-  border-radius: 0.625rem;
+.login-button{
+  width: 200px;
+  font-family: Inter, serif;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+
+}
+.header__title{
+  font-size:1.5rem!important;
+  font-weight: 700!important;
+}
+.back-icon{
+  font-size:1.5rem;
+}
+.email-icon,
+.password-icon {
+  font-size: 1.5rem;
+}
+
+.ant-form-item-control-input-content{
+  display: flex;
+  justify-content: space-between;
+}
+.ant-form-item-control-input-content register-button-container {
+
+  align-content: center;
+}
+
+.submit-button-div{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.ant-row {
   display: flex;
   align-items: center;
-
-  /* & input {
-    border: 0;
-    outline: none;
-    margin-left: 0.75rem;
-    font-family: "Faustina" serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 30px;
-    color: black;
-  } */
 }
 
-.login-field input {
+.ant-layout-footer{
+  display: flex;
+  justify-content: space-evenly;
+}
+.sign-up-link{
+  font-weight: bold;
+}
+
+.email input,
+.password input {
   border: 0;
+  width: 44.625rem;
   outline: none;
   margin-left: 0.75rem;
-  font-family: "Faustina" serif;
+  font-family: "Faustina", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 30px;
   color: black;
-}
-
-.login-field input::placeholder {
-  color: #a59591;
-}
-
-.login-button-container {
-  width: 100%;
-  text-align: center;
-}
-
-.login-button {
-  margin-top: 2rem;
-  background: #5f7d63;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: center;
-  color: #f2f7f9;
-  padding: 10px 50px;
-  border: none;
 }
