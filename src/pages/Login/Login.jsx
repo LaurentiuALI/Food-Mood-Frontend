@@ -15,7 +15,7 @@ const { Title, Text } = Typography;
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
 
-export const Login = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
@@ -177,3 +177,5 @@ export const Login = () => {
     </BackgroundTemplate>
   );
 };
+
+export default Login;

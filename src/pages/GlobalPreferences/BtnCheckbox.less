@@ -1,0 +1,45 @@
+// input[type="checkbox"]:not(:checked)
+.btnCheckBox {
+  margin: 0.625rem 0.938rem;
+  background-color: #f2f7f9;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  float: left;
+}
+
+.btnCheckBox label {
+  cursor: pointer;
+}
+
+.btnCheckBox label span {
+  padding: 0.188rem 0rem;
+  display: block;
+}
+
+.btnCheckBox label input {
+  position: absolute;
+  display: none;
+}
+
+// input[type="checkbox"]:checked
+.btnCheckBox input[type="checkbox"]:checked + span {
+  background-color: #faedcd;
+}
+
+// input[type="checkbox"]:disabled
+.btnCheckBox input[type="checkbox"]:disabled + span {
+  color: #c0c0c0;
+  background-color: #f2f7f980;
+  cursor: default;
+}
+
+// input[type="checkbox"][disabled]:checked
+.btnCheckBox input[type="checkbox"][disabled]:checked + span {
+  color: #c0c0c0;
+  background-color: #faedcd80;
+  cursor: default;
+}
+
+
+
+
