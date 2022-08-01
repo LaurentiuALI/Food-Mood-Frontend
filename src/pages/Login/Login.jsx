@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Login.css";
+import "./Login.less";
 import {
   MailOutlined,
   LeftOutlined,
@@ -68,7 +68,7 @@ const Login = () => {
   return (
     <BackgroundTemplate>
       <ContainerBox>
-        <Layout>
+        {/* <Layout>
           <Header>
             <Link to={"/"}>
               {" "}
@@ -79,9 +79,38 @@ const Login = () => {
             </Link>
             <Title className="header__title">LOG IN</Title>
             <div></div>
+          </Header> */}
+        <Layout className="main-layout">
+          <Header className="main-layout-header">
+            <div className="main-layout-header-left">
+              <Link to="/">
+                <LeftOutlined
+                  style={{
+                    color: "#5F7D63",
+                    stroke: "#5F7D63",
+                    strokeWidth: "100",
+                  }}
+                />
+              </Link>
+            </div>
+            <Title
+              level={3}
+              style={{
+                fontFamily: "Georama",
+                fontStyle: "normal",
+                fontWeight: "700",
+              }}
+            >
+              LOG IN
+            </Title>
+            <div className="main-layout-header-right">&nbsp;</div>
           </Header>
 
-          <Content className="content-container">
+          {/* <Content className="content-container"> */}
+          <Content
+            className="main-layout-content login-content"
+            style={{ textAlign: "left" }}
+          >
             <Form
               name="normal_login"
               className="login-form"
@@ -141,18 +170,22 @@ const Login = () => {
                 />
               </Form.Item>
 
-              <Form.Item className="login-options-container">
-                <Form.Item name="remember" noStyle>
-                  <Checkbox checked={isChecked} onChange={keepUserLoggedIn}>
-                    Remember me
-                  </Checkbox>
-                </Form.Item>
+              {/* <Form.Item className="login-options-container"> */}
+              <Form.Item>
+                <div className="login-options-container">
+                  <Form.Item name="remember" noStyle>
+                    <Checkbox checked={isChecked} onChange={keepUserLoggedIn}>
+                      {/* Remember me */}
+                      Keep me signed in
+                    </Checkbox>
+                  </Form.Item>
 
-                <Link className="login-form-forgot" to={"/forgot-password"}>
-                  Trouble logging in?
-                </Link>
+                  <Link className="login-form-forgot" to={"/forgot-password"}>
+                    Trouble logging in?
+                  </Link>
+                </div>
               </Form.Item>
-              <div className="submit-button-div">
+              {/* <div className="submit-button-div">
                 <Form.Item>
                   <Button
                     type="primary"
@@ -162,15 +195,38 @@ const Login = () => {
                     Log in
                   </Button>
                 </Form.Item>
-              </div>
+              </div> */}
+
+              <Form.Item style={{ marginBottom: "0rem" }}>
+                <div className="login-button-container">
+                  <Button
+                    type="primary"
+                    // htmlType="submit"
+                    style={{
+                      fontFamily: "Inter",
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      width: "7.5rem",
+                    }}
+                    onClick={onLogin}
+                  >
+                    Log in
+                  </Button>
+                </div>
+              </Form.Item>
             </Form>
           </Content>
 
-          <Footer className="login-page-footer">
+          {/* <Footer className="login-page-footer">
             <Text>You don't have an account yet?</Text>{" "}
             <div className="sign-up-link">
               <Link to={"/register"}>Sign up!</Link>
             </div>
+          </Footer> */}
+
+          <Footer className="main-layout-footer">
+            <div>You don't have an account yet?</div>
+            <Link to="/register">Sign up!</Link>
           </Footer>
         </Layout>
       </ContainerBox>
