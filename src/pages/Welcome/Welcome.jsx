@@ -50,6 +50,7 @@ const Welcome = () => {
                   fontStyle: "normal",
                   fontWeight: "700",
                   width: "7.5rem",
+                  height: "1.875rem",
                 }}
               >
                 Sign Up
@@ -62,6 +63,7 @@ const Welcome = () => {
                   fontStyle: "normal",
                   fontWeight: "700",
                   width: "7.5rem",
+                  height: "1.875rem",
                 }}
               >
                 Log In
