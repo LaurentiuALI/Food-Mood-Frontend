@@ -8,7 +8,7 @@ import GlobalPreferences from "./pages/GlobalPreferences/GlobalPreferences";
 import Home from "./pages/Home/Home";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 
-// import Test from "./pages/Test/Test";
+import Test from "./pages/Test/Test";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/test" element={<Test />} /> */}
+        <Route path="/test" element={<Test />} />
 
         <Route
           path="/preferences"

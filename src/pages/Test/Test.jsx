@@ -18,7 +18,7 @@ for (let i = binaryRepresentation.length - 1; i >= 0; i--) {
   }
 }
 // }
-console.log(binaryToArray); // Check the array
+// console.log(binaryToArray); // Check the array
 // catalin("11011")
 
 const Test = () => {
