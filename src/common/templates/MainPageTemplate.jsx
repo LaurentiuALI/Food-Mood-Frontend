@@ -31,12 +31,12 @@ const MainPageTemplate = (props) => {
       onClick={onClick}
       items={[
         {
-          label: "Account settings",
+          label: "Account",
           key: "1",
           icon: <AccountCircleIcon className="dropdown-icon" />,
         },
         {
-          label: "Account settings",
+          label: "Preferences",
           key: "2",
           icon: <SettingsIcon className="dropdown-icon" />,
         },
