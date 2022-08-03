@@ -1,10 +1,10 @@
 import "./AccountDetails.css";
-import BackgroundTemplate from "../../common/templates/BackgroundTemplate.jsx";
+import MainPageTemplate from "../../common/templates/MainPageTemplate.jsx";
 
 const AccountDetails = () => {
   return (
     <div>
-      <BackgroundTemplate></BackgroundTemplate>
+      <MainPageTemplate></MainPageTemplate>
     </div>
   );
 };

@@ -81,7 +81,7 @@ const Login = () => {
             <div></div>
           </Header> */}
         <Layout className="main-layout">
-          <Header className="main-layout-header">
+          <Header className="main-layout-header" style={{ color: "none" }}>
             <div className="main-layout-header-left">
               <Link to="/">
                 <LeftOutlined
@@ -207,7 +207,7 @@ const Login = () => {
                       fontStyle: "normal",
                       fontWeight: "700",
                       width: "7.5rem",
-                      height: "1.875rem"
+                      height: "1.875rem",
                     }}
                     onClick={onLogin}
                   >
