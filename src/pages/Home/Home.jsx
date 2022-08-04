@@ -1,88 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import MainPageTemplate from "../../common/templates/MainPageTemplate.jsx";
+import { Button, Col, Row } from "antd";
 import "./Home.less";
-import { Button, Col, Input, Layout, Menu, Row } from "antd";
-import {
-  ShoppingCartOutlined,
-  SettingOutlined,
-  UserOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
 
 import RestaurantsList from "./RestaurantsList";
+import { useLocation } from "react-router-dom";
 
-const { Header, Content, Footer } = Layout;
-const { Search } = Input;
-
-const items = [
-  {
-    key: "cart",
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    key: "SubMenu",
-    icon: <UserOutlined />,
-    children: [
-      {
-        label: "Account",
-        icon: <UserOutlined />,
-      },
-      {
-        label: "Preferences",
-        icon: <SettingOutlined />,
-      },
-      {
-        label: "Log out",
-        icon: <LogoutOutlined />,
-      },
-    ],
-  },
-];
-
-const onSearch = (value) => console.log(value);
 
 const Home = () => {
-  const [current, setCurrent] = useState("mail");
-
-  const onClick = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
-  };
+  const { state } = useLocation();
+  const { pref } = state;
 
   return (
-    <Layout>
-      <Header
-        style={{
-          position: "fixed",
-          zIndex: 1,
-          width: "100%",
-        }}
-      >
-        <div className="home-header">
-          <div className="logo">FOOD MOOD</div>
-          <div>
-            <Search
-              placeholder="Search"
-              onSearch={onSearch}
-              enterButton
-              allowClear
-            />
-          </div>
-          <Menu
-            onClick={onClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-            items={items}
-          />
-        </div>
-      </Header>
-      <Content
-        className="site-layout"
-        style={{
-          padding: "0 50px",
-          marginTop: 64,
-        }}
-      >
-        <div
+    <div>
+      <MainPageTemplate>Restaurants</MainPageTemplate>
+      <div>
+        <p>Preferences: {state.pref}</p>
+      </div>
+
+      <div
           className="site-layout-background"
           style={{
             padding: 24,
@@ -124,15 +60,8 @@ const Home = () => {
             </Row>
           </div>
         </div>
-      </Content>
-      <Footer
-        style={{
-          textAlign: "center",
-        }}
-      >
-        ©2022 Created by ...
-      </Footer>
-    </Layout>
+
+    </div>
   );
 };
 

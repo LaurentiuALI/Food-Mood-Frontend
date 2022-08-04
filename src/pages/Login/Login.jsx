@@ -42,16 +42,13 @@ const Login = () => {
           localStorage.setItem("user", JSON.stringify(response.data));
           setUser(response.data);
         }
-        navigate("/preferences", { replace: true });
+        navigate("/home", { replace: true });
       })
       .catch((e) => {
         console.log("Error");
         console.log(e);
       });
   };
-  useEffect(() => {
-    // Check if you have a token in sessionStorage
-  });
 
   useEffect(() => {
     const localLoggedInUser = localStorage.getItem("user");
@@ -81,7 +78,7 @@ const Login = () => {
             <div></div>
           </Header> */}
         <Layout className="main-layout">
-          <Header className="main-layout-header">
+          <Header className="main-layout-header" style={{ color: "none" }}>
             <div className="main-layout-header-left">
               <Link to="/">
                 <LeftOutlined
@@ -207,7 +204,7 @@ const Login = () => {
                       fontStyle: "normal",
                       fontWeight: "700",
                       width: "7.5rem",
-                      height: "1.875rem"
+                      height: "1.875rem",
                     }}
                     onClick={onLogin}
                   >
