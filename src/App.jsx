@@ -29,7 +29,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/account-details" element={<AccountDetails />} />
+        <Route
+          path="/account-details"
+          element={
+            <ProtectedRoute>
+              <AccountDetails />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

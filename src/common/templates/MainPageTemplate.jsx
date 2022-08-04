@@ -13,12 +13,6 @@ const MainPageTemplate = (props) => {
   const navigate = useNavigate();
 
   const onClick = ({ key }) => {
-    if (key === "1") {
-      navigate("/account-details", { replace: true });
-    }
-    if (key === "2") {
-      navigate("/account-preferences", { replace: true });
-    }
     if (key === "3") {
       localStorage.clear();
       sessionStorage.clear();
@@ -31,12 +25,16 @@ const MainPageTemplate = (props) => {
       onClick={onClick}
       items={[
         {
-          label: "Account",
+          label: <Link to={"/account-details"}>Account</Link>,
           key: "1",
-          icon: <AccountCircleIcon className="dropdown-icon" />,
+          icon: (
+            <Link to={"/account-details"}>
+              <AccountCircleIcon className="dropdown-icon" />
+            </Link>
+          ),
         },
         {
-          label: "Preferences",
+          label: <Link to={"/account-preferences"}>Preferences</Link>,
           key: "2",
           icon: <SettingsIcon className="dropdown-icon" />,
         },
@@ -69,7 +67,9 @@ const MainPageTemplate = (props) => {
               />
             </div>
             <div className="menu-buttons">
-              <ShoppingCartOutlined className="shopping-cart-icon" />
+              <Link to={"/shopping-cart"}>
+                <ShoppingCartOutlined className="shopping-cart-icon" />
+              </Link>
 
               <Dropdown overlay={menu}>
                 <a onClick={(e) => e.preventDefault()}>
