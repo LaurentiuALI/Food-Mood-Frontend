@@ -1,20 +1,54 @@
 import { LeftOutlined } from "@ant-design/icons";
 import { Button, Layout, Typography } from "antd";
 import { Content, Footer, Header } from "antd/lib/layout/layout";
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
-import BtnCheckbox from "./BtnCheckbox";
+import BtnCheckbox from "../../common/components/BtnCheckbox";
 import "./GlobalPreferences.less";
+import ListOfGlobalPreferences from "../../common/dummy-data/ListOfGlobalPreferences";
+import DummyDataUser from "../../common/dummy-data/DummyDataUser";
 
 const { Text, Title } = Typography;
 
 const GlobalPreferences = () => {
-  const navigate = useNavigate();
+  // user chosen preferences (it will be useful also for account preferences)
+  const { users } = DummyDataUser;
+  let index = 0;
+  const [preferences, setPreferences] = useState(users[index].prefs);
 
+  // const [preferences, setPreferences] = useState([])
+
+  // Add/Remove checked preference from list
+  const handleCheck = (event) => {
+    var updatedList = [...preferences];
+    if (event.target.checked) {
+      updatedList = [...preferences, event.target.value];
+      // console.log(updatedList);
+    } else {
+      updatedList.splice(preferences.indexOf(event.target.value), 1);
+      // console.log(updatedList);
+    }
+    setPreferences(updatedList);
+  };
+
+  // Generate string of checked items
+  const checkedItems = preferences.length
+    ? preferences.reduce((total, item) => {
+        return total + ", " + item;
+      })
+    : "";
+
+  // Return classes based on whether item is checked
+  var isChecked = (item) => (preferences.includes(item) ? true : false);
+
+  const navigate = useNavigate();
   const onHome = () => {
-    navigate("/home");
+    // navigate("/home");
+
+    //pass chosen pref to restaurant page
+    navigate("/home", { state: { pref: checkedItems } });
   };
 
   return (
@@ -52,16 +86,36 @@ const GlobalPreferences = () => {
               and we’ll filter restaurants based on your preferences.
             </Text>
             <div className="chk-group-wrapper">
-              <BtnCheckbox id="test1" label="Healthy" checked={true} />
-              <BtnCheckbox label="Greasy" checked={true} disabled />
-              <BtnCheckbox label="Cheesy" disabled />
-              <BtnCheckbox label="Vegetarian" />
-              <BtnCheckbox label="Vegan" />
-              <BtnCheckbox label="Meat lover" />
-              <BtnCheckbox label="Gourmand" />
-              <BtnCheckbox label="Gourmet" />
-              <BtnCheckbox label="Gluten free" />
+              <BtnCheckbox id="test1" label="Test 1" checked={true} />
+              <BtnCheckbox label="Twat 2" checked={true} disabled />
+              <BtnCheckbox label="Test 3" disabled />
+              {/* {ListOfGlobalPreferences.map((item, index) => (
+                <BtnCheckbox
+                  id={index}
+                  value={item}
+                  label={item}
+                  checked={isChecked(item)}
+                  onClick={handleCheck}
+                />
+              ))} */}
             </div>
+
+            <div>{`Preferences checked: ${checkedItems}`}</div>
+
+            <div className="chk-group-wrapper">
+              {ListOfGlobalPreferences.map(({name}, index ) => {
+                return (
+                  <BtnCheckbox
+                  id={index}
+                  value={name}
+                  label={name}
+                  checked={isChecked(name)}
+                  onClick={handleCheck}
+                />
+                );
+              })}
+            </div>
+
             <div className="pref-button-container">
               <Button
                 type="primary"
