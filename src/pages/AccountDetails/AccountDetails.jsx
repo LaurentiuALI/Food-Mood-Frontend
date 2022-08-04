@@ -12,8 +12,13 @@ import {
   Form,
   Select,
   Space,
+  Button,
 } from "antd";
-import { LeftOutlined } from "@ant-design/icons";
+import {
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+  LeftOutlined,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const { Title } = Typography;
@@ -33,9 +38,14 @@ const AccountDetails = () => {
         </Header>
         <Content>
           <Row className="header-grid">
-            <Col span={12}>Account details</Col>
-            <Col span={12}>Password change</Col>
+            <Col span={12}>
+              <Title className="header-title">Account details</Title>
+            </Col>
+            <Col span={12}>
+              <Title className="header-title">Password change</Title>
+            </Col>
           </Row>
+          {/*-----------------LEFT SIDE-----------------*/}
           <Row className="content-grid">
             <Col span={12}>
               <Form
@@ -54,14 +64,71 @@ const AccountDetails = () => {
                   <Input className="form-input" />
                 </Form.Item>
 
-                <Form.Item label="Select">
+                <Form.Item label="Email">
+                  <Input className="form-input" />
+                </Form.Item>
+
+                <Form.Item label="Phone number">
+                  <Input className="form-input" />
+                </Form.Item>
+
+                <Form.Item label="Address">
+                  <Input className="form-input" />
+                </Form.Item>
+
+                <Form.Item label="Country">
+                  <Select>
+                    <Select.Option value="demo">Demo</Select.Option>
+                  </Select>
+                </Form.Item>
+
+                <Form.Item label="City">
                   <Select>
                     <Select.Option value="demo">Demo</Select.Option>
                   </Select>
                 </Form.Item>
               </Form>
             </Col>
-            <Col span={12}></Col>
+            {/*-----------------RIGHT SIDE-----------------*/}
+            <Col span={12}>
+              <Form
+                labelCol={{
+                  span: 6,
+                }}
+                wrapperCol={{
+                  span: 14,
+                }}
+                initialValues={{
+                  size: "default",
+                }}
+              >
+                <Form.Item
+                  label="Current password"
+                  className="password-field-label"
+                >
+                  <Input.Password className="form-input" />
+                </Form.Item>
+
+                <Form.Item label="New password">
+                  <Input.Password />
+                </Form.Item>
+
+                <Form.Item label="Confirm new password">
+                  <Input.Password />
+                </Form.Item>
+
+                <Form.Item
+                  wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                  }}
+                >
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Col>
           </Row>
         </Content>
       </MainPageTemplate>
