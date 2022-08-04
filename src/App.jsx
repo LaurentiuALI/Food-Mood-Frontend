@@ -7,6 +7,7 @@ import Register from "./pages/Register/Register";
 import GlobalPreferences from "./pages/GlobalPreferences/GlobalPreferences";
 import Home from "./pages/Home/Home";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
+import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
 
 import Test from "./pages/Test/Test";
 
@@ -25,6 +26,14 @@ function App() {
           element={
             <ProtectedRoute>
               <GlobalPreferences />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/account-details"
+          element={
+            <ProtectedRoute>
+              <AccountDetails />
             </ProtectedRoute>
           }
         />

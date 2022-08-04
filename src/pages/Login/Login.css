@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 8rem!important;
+  background: none!important;
 }
 
 .login-button{

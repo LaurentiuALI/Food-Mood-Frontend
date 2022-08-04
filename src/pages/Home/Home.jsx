@@ -1,4 +1,5 @@
 import React from "react";
+import MainPageTemplate from "../../common/templates/MainPageTemplate.jsx";
 import { useLocation } from "react-router-dom";
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
 
   return (
     <div>
-      <div>RESTAURANTS</div>
+      <MainPageTemplate>Restaurants</MainPageTemplate>
       <div>
         <p>Preferences: {state.pref}</p>
       </div>
@@ -15,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home
