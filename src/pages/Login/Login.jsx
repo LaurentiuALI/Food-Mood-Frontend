@@ -42,16 +42,13 @@ const Login = () => {
           localStorage.setItem("user", JSON.stringify(response.data));
           setUser(response.data);
         }
-        navigate("/preferences", { replace: true });
+        navigate("/home", { replace: true });
       })
       .catch((e) => {
         console.log("Error");
         console.log(e);
       });
   };
-  useEffect(() => {
-    // Check if you have a token in sessionStorage
-  });
 
   useEffect(() => {
     const localLoggedInUser = localStorage.getItem("user");

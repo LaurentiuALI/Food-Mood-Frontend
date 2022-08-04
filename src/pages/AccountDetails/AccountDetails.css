@@ -1,0 +1,53 @@
+/* Breadcrumbs menu -> Account preferences */
+
+.account-preferences-menu{
+    display: flex;
+    align-items: center;
+}
+
+.back-arrow{
+    color: #5F7D63;
+    stroke: #5F7D63;
+    stroke-width: 100;
+    font-size: 1.563rem;
+    padding-right: 60px;
+}
+
+.account-preferences-menu .account-account{
+    font-family: 'Georama', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: #7A3C2A;
+    padding-right: 60px;
+}
+
+.account-preferences-menu .account-preferences{
+    font-family: 'Georama', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+
+}
+
+/*Main account settings page grid*/
+.header-grid{
+    border-color: #7a3c2a;
+    border-style: solid;
+}
+
+.content-grid{
+    padding-top: 20px;
+    border-color: #7a3c2a;
+    border-style: solid;
+    border-top: none;
+}
+
+.content-grid .form-input{
+    border: none;
+}
+
+
+
