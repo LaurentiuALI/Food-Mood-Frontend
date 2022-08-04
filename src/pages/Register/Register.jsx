@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Register.less";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
 import ContainerBox from "../../common/templates/ContainerBox";
-// import axios from "axios";
+import axios from "axios";
 
 const { Title } = Typography;
 
@@ -22,58 +22,68 @@ const Register = () => {
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [password, setPassword] = useState();
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
-  // const onRegister = () => {
-  //   axios
-  //     .post("http://localhost:3000/auth/register", {
-  //       name: name,
-  //       email: email,
-  //       phoneNumber: phone,
-  //       password: password,
-  //     })
-  //     .then((response) => {
-  //       console.log("Success ✅");
-  //       console.log(response);
-  //       // 👇️ clearing input values after submit
-  //       form.resetFields();
-  //       // 👇️ redirect to /preferences
-  //       // navigate('/preferences');
-  //     })
-  //     // .catch((e) => {
-  //     //   console.log("e");
-  //     //   console.log(e);
-  //     //   // const errStatusCode = e.response.data.statusCode;
-  //     //   // console.log("Status Code: ", e.response.data.statusCode);
-  //     //   // console.log("Message lenghth: ", e.response.data.message.length);
-  //     //   // console.log("Messages: ", e.response.data.message);
-  //     // });
-  //     .catch(function (error) {
-  //       if (error.response) {
-  //         console.log(error.response.data);
-  //         console.log(error.response.status);
-  //         console.log(error.response.headers);
-  //       }
-  //     });
-  // };
-
-  // test without create a new user
-  const onRegister = (data) => {
-    console.log("✅ Success:", data);
-    // 👇️ redirect to /preferences
-    navigate("/preferences");
-    // 👇️ clearing input values after submit
-    form.resetFields();
+  const onRegister = () => {
+    axios
+      .post("http://localhost:3000/auth/register", {
+        name: name,
+        email: email,
+        phoneNumber: phone,
+        password: password,
+      })
+      .then((response) => {
+        setErrors({});
+        console.log("Success ✅");
+        console.log(response);
+        // 👇️ clearing input values after submit
+        form.resetFields();
+        // 👇️ redirect to /preferences
+        // navigate('/preferences');
+      })
+      // .catch((e) => {
+      //   console.log("e");
+      //   console.log(e);
+      //   // const errStatusCode = e.response.data.statusCode;
+      //   // console.log("Status Code: ", e.response.data.statusCode);
+      //   // console.log("Message lenghth: ", e.response.data.message.length);
+      //   // console.log("Messages: ", e.response.data.message);
+      // });
+      .catch(function (error) {
+        if (error.response) {
+          setErrors(error.response.data.message);
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
   };
+
+  //       const errMsg = e.response.data.message;
+  //       console.log("Messages: ", errMsg);
+  //       // errMsg.forEach((m) => {
+  //       //   console.log("Messages: ", m);
+  //       // });
+
+
+  // // test without create a new user
+  // const onRegister = (data) => {
+  //   console.log("✅ Success:", data);
+  //   // 👇️ redirect to /preferences
+  //   navigate("/preferences");
+  //   // 👇️ clearing input values after submit
+  //   form.resetFields();
+  // };
 
   // const onRegister = (values) => {
   //   console.log('Received values of form: ', values);
   // };
 
-  const onRegisterFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onRegisterFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   const [form] = Form.useForm();
 
@@ -112,40 +122,33 @@ const Register = () => {
             <Form
               form={form}
               name="register"
-              onFinish={onRegister}
-              onFinishFailed={onRegisterFailed}
+              // onFinish={onRegister}
+              // onFinishFailed={onRegisterFailed}
               // autoComplete="off"
               scrollToFirstError
             >
               <Form.Item
                 name="name"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter a name.",
-                  },
-                ]}
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                validateStatus={errors.hasOwnProperty("name") ? "error" : "validating"}
+                help={errors.hasOwnProperty("name") ? errors.name : null}
+                onChange={(e) => {
+                  setName(e.target.value)
+                  delete errors.name;
+                }}
               >
                 <Input prefix={<UserOutlined />} placeholder="Name" />
               </Form.Item>
 
               <Form.Item
                 name="email"
-                rules={[
-                  {
-                    type: "email",
-                    message:
-                      "Please enter a valid email address. / This email is already registered.",
-                  },
-                  {
-                    required: true,
-                    message: "Please input your email.",
-                  },
-                ]}
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                validateStatus={errors.hasOwnProperty("email") ? "error" : "validating"}
+                help={errors.hasOwnProperty("email") ? errors.email : null}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                  delete errors.email;
+                }}
               >
                 <Input
                   prefix={<MailOutlined className="form-item-icon" />}
@@ -228,7 +231,8 @@ const Register = () => {
                 <div className="register-button-container">
                   <Button
                     type="primary"
-                    htmlType="submit"
+                    // htmlType="submit"
+                    onClick={onRegister}
                     style={{
                       fontFamily: "Inter",
                       fontStyle: "normal",
