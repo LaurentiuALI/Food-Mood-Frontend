@@ -6,19 +6,17 @@ import "./Home.less";
 import RestaurantsList from "./RestaurantsList";
 import { useLocation } from "react-router-dom";
 
-
 const Home = () => {
   const { state } = useLocation();
   const { pref } = state;
 
   return (
     <div>
-      <MainPageTemplate>Restaurants</MainPageTemplate>
-      <div>
-        <p>Preferences: {state.pref}</p>
-      </div>
-
-      <div
+      <MainPageTemplate>
+        <div>
+          <p>Preferences: {state.pref}</p>
+        </div>
+        <div
           className="site-layout-background"
           style={{
             padding: 24,
@@ -56,11 +54,10 @@ const Home = () => {
                   </Col>
                 );
               })}
-              
             </Row>
           </div>
         </div>
-
+      </MainPageTemplate>
     </div>
   );
 };
