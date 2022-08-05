@@ -28,7 +28,7 @@ const Register = () => {
 
   const onRegister = () => {
     axios
-      .post("http://localhost:3000/auth/register", {
+      .post(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/auth/register`, {
         name: name,
         email: email,
         phoneNumber: phone,
