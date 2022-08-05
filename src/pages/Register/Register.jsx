@@ -22,6 +22,7 @@ const Register = () => {
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [password, setPassword] = useState();
+  const [passwordConfirmation, setPasswordConfirmation] = useState();
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Register = () => {
         email: email,
         phoneNumber: phone,
         password: password,
+        passwordConfirmation: passwordConfirmation
       })
       .then((response) => {
         setErrors({});
@@ -41,16 +43,8 @@ const Register = () => {
         // 👇️ clearing input values after submit
         form.resetFields();
         // 👇️ redirect to /preferences
-        // navigate('/preferences');
+        navigate('/preferences');
       })
-      // .catch((e) => {
-      //   console.log("e");
-      //   console.log(e);
-      //   // const errStatusCode = e.response.data.statusCode;
-      //   // console.log("Status Code: ", e.response.data.statusCode);
-      //   // console.log("Message lenghth: ", e.response.data.message.length);
-      //   // console.log("Messages: ", e.response.data.message);
-      // });
       .catch(function (error) {
         if (error.response) {
           setErrors(error.response.data.message);
@@ -60,13 +54,6 @@ const Register = () => {
         }
       });
   };
-
-  //       const errMsg = e.response.data.message;
-  //       console.log("Messages: ", errMsg);
-  //       // errMsg.forEach((m) => {
-  //       //   console.log("Messages: ", m);
-  //       // });
-
 
   // // test without create a new user
   // const onRegister = (data) => {
@@ -158,14 +145,13 @@ const Register = () => {
 
               <Form.Item
                 name="phone"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter enter a valid phone number.",
-                  },
-                ]}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                validateStatus={errors.hasOwnProperty("phoneNumber") ? "error" : "validating"}
+                help={errors.hasOwnProperty("phoneNumber") ? errors.phoneNumber : null}
+                onChange={(e) => {
+                  setPhone(e.target.value)
+                  delete errors.phoneNumber;
+                }}
               >
                 <Input
                   className="form-item-icon"
@@ -177,20 +163,13 @@ const Register = () => {
 
               <Form.Item
                 name="password"
-                rules={[
-                  {
-                    min: 6,
-                    max: 16,
-                    message:
-                      "Your password must be between 6 - 16 characters long.",
-                  },
-                  {
-                    required: true,
-                    message: "Please enter your password.",
-                  },
-                ]}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                validateStatus={errors.hasOwnProperty("password") ? "error" : "validating"}
+                help={errors.hasOwnProperty("password") ? errors.password : null}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                  delete errors.password;
+                }}
               >
                 <Input.Password
                   prefix={<LockOutlined className="form-item-icon" />}
@@ -199,27 +178,14 @@ const Register = () => {
               </Form.Item>
 
               <Form.Item
-                name="confirm"
-                dependencies={["password"]}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please confirm your password.",
-                  },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
-                        return Promise.resolve();
-                      }
-
-                      return Promise.reject(
-                        new Error(
-                          "This does not match the password entered above."
-                        )
-                      );
-                    },
-                  }),
-                ]}
+                name="passwordConfirmation"
+                value={passwordConfirmation}
+                validateStatus={errors.hasOwnProperty("passwordConfirmation") ? "error" : "validating"}
+                help={errors.hasOwnProperty("passwordConfirmation") ? errors.passwordConfirmation : null}
+                onChange={(e) => {
+                  setPasswordConfirmation(e.target.value)
+                  delete errors.passwordConfirmation;
+                }}
               >
                 <Input.Password
                   prefix={<LockOutlined className="form-item-icon" />}

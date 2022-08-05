@@ -4,17 +4,17 @@ import { Button, Col, Row } from "antd";
 import "./Home.less";
 
 import RestaurantsList from "./RestaurantsList";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 const Home = () => {
-  const { state } = useLocation();
-  const { pref } = state;
+  // const { state } = useLocation();
+  // const { pref } = state;
 
   return (
     <div>
       <MainPageTemplate>
         <div>
-          <p>Preferences: {state.pref}</p>
+          {/* <p>Preferences: {state.pref}</p> */}
         </div>
         <div
           className="site-layout-background"

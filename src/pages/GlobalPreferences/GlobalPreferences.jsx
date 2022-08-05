@@ -1,6 +1,7 @@
 import { LeftOutlined } from "@ant-design/icons";
 import { Button, Layout, Typography } from "antd";
 import { Content, Footer, Header } from "antd/lib/layout/layout";
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
@@ -33,8 +34,6 @@ const GlobalPreferences = () => {
     setPreferences(updatedList);
   };
 
-  console.log(updatedList);
-
   // Generate string of checked items
   const checkedItems = preferences.length
     ? preferences.reduce((total, item) => {
@@ -53,13 +52,12 @@ const GlobalPreferences = () => {
     // navigate("/home", { state: { pref: checkedItems } });
   };
   const updatePreferences = async () => {
-    console.log(updatedList);
     const token = JSON.parse(sessionStorage.getItem("user")).access_token;
-    // await axios.put("http://localhost:3000/auth/profile2", preferences, {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
+    await axios.put("http://localhost:3000/auth/profile2", preferences, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     onHome();
   };
 

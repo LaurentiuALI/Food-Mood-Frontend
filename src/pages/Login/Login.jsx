@@ -20,6 +20,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
   const [isChecked, setIsChecked] = useState(false);
+  const [errors, setErrors] = useState({})
   const navigate = useNavigate();
 
   const keepUserLoggedIn = () => {
@@ -36,17 +37,18 @@ const Login = () => {
       })
       .then((response) => {
         console.log("Success");
+        setErrors({});
         console.log(response.data);
         sessionStorage.setItem("user", JSON.stringify(response.data));
         if (isChecked) {
           localStorage.setItem("user", JSON.stringify(response.data));
           setUser(response.data);
         }
-        navigate("/home", { replace: true });
+        navigate("/preferences", { replace: true });
       })
       .catch((e) => {
-        console.log("Error");
-        console.log(e);
+        setErrors(e.response.data.message)
+        console.log("am prins eroarea: \n", e.response.data)
       });
   };
 
@@ -57,7 +59,7 @@ const Login = () => {
     if (localLoggedInUser || sessionLoggedInUser) {
       const foundUser = JSON.parse(localLoggedInUser);
       setUser(foundUser);
-      navigate("/preferences", { replace: true });
+      navigate("/home", { replace: true });
       console.log(foundUser);
     }
   }, [isChecked]);
@@ -65,18 +67,6 @@ const Login = () => {
   return (
     <BackgroundTemplate>
       <ContainerBox>
-        {/* <Layout>
-          <Header>
-            <Link to={"/"}>
-              {" "}
-              <LeftOutlined
-                className="back-icon"
-                style={{ color: "#5F7D63" }}
-              />
-            </Link>
-            <Title className="header__title">LOG IN</Title>
-            <div></div>
-          </Header> */}
         <Layout className="main-layout">
           <Header className="main-layout-header" style={{ color: "none" }}>
             <div className="main-layout-header-left">
@@ -103,7 +93,6 @@ const Login = () => {
             <div className="main-layout-header-right">&nbsp;</div>
           </Header>
 
-          {/* <Content className="content-container"> */}
           <Content
             className="main-layout-content login-content"
             style={{ textAlign: "left" }}
@@ -114,10 +103,14 @@ const Login = () => {
               initialValues={{ remember: true }}
             >
               <Form.Item
-                name="Email"
-                rules={[
-                  { required: true, message: "Please input your Email!" },
-                ]}
+                name="email"
+                value={email}
+                validateStatus={errors.hasOwnProperty("email")|| errors ? "error" : "validating"}
+                help={errors.hasOwnProperty("email") ? errors.email : null}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                  delete errors.email;
+                }}
               >
                 <Input
                   className="email"
@@ -133,9 +126,13 @@ const Login = () => {
               </Form.Item>
               <Form.Item
                 name="password"
-                rules={[
-                  { required: true, message: "Please input your Password!" },
-                ]}
+                value={password}
+                validateStatus={errors.hasOwnProperty("password") ? "error" : "validating"}
+                help={errors.hasOwnProperty("password") ? errors.password : null}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                  delete errors.password;
+                }}
               >
                 <Input.Password
                   className="password"
@@ -167,12 +164,10 @@ const Login = () => {
                 />
               </Form.Item>
 
-              {/* <Form.Item className="login-options-container"> */}
               <Form.Item>
                 <div className="login-options-container">
                   <Form.Item name="remember" noStyle>
                     <Checkbox checked={isChecked} onChange={keepUserLoggedIn}>
-                      {/* Remember me */}
                       Keep me signed in
                     </Checkbox>
                   </Form.Item>
@@ -182,23 +177,12 @@ const Login = () => {
                   </Link>
                 </div>
               </Form.Item>
-              {/* <div className="submit-button-div">
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    className="login-button"
-                    onClick={onLogin}
-                  >
-                    Log in
-                  </Button>
-                </Form.Item>
-              </div> */}
+
 
               <Form.Item style={{ marginBottom: "0rem" }}>
                 <div className="login-button-container">
                   <Button
                     type="primary"
-                    // htmlType="submit"
                     style={{
                       fontFamily: "Inter",
                       fontStyle: "normal",
@@ -214,13 +198,6 @@ const Login = () => {
               </Form.Item>
             </Form>
           </Content>
-
-          {/* <Footer className="login-page-footer">
-            <Text>You don't have an account yet?</Text>{" "}
-            <div className="sign-up-link">
-              <Link to={"/register"}>Sign up!</Link>
-            </div>
-          </Footer> */}
 
           <Footer className="main-layout-footer">
             <div>You don't have an account yet?</div>
