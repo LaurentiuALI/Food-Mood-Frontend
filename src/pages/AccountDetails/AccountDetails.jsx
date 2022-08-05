@@ -20,6 +20,7 @@ import {
   LeftOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { judete } from "src/common/data/judete.json";
 
 const { Title } = Typography;
 
@@ -60,7 +61,7 @@ const AccountDetails = () => {
                   size: "default",
                 }}
               >
-                <Form.Item label="Input">
+                <Form.Item label="Name">
                   <Input className="form-input" />
                 </Form.Item>
 
@@ -76,7 +77,7 @@ const AccountDetails = () => {
                   <Input className="form-input" />
                 </Form.Item>
 
-                <Form.Item label="Country">
+                <Form.Item label="County">
                   <Select>
                     <Select.Option value="demo">Demo</Select.Option>
                   </Select>
@@ -90,7 +91,7 @@ const AccountDetails = () => {
               </Form>
             </Col>
             {/*-----------------RIGHT SIDE-----------------*/}
-            <Col span={12}>
+            <Col span={12} className="change-password-container">
               <Form
                 labelCol={{
                   span: 6,
@@ -117,17 +118,28 @@ const AccountDetails = () => {
                   <Input.Password />
                 </Form.Item>
 
-                <Form.Item
-                  wrapperCol={{
-                    offset: 8,
-                    span: 16,
-                  }}
-                >
-                  <Button type="primary" htmlType="submit">
-                    Submit
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="submitButton"
+                  >
+                    Save Changes
                   </Button>
                 </Form.Item>
               </Form>
+
+              {/*  <Col span={6}></Col>*/}
+
+              {/*  <Col span={6} className="submit-button-container">*/}
+              {/*    <Button*/}
+              {/*      type="primary"*/}
+              {/*      htmlType="submit"*/}
+              {/*      className="submitButton"*/}
+              {/*    >*/}
+              {/*      Save Changes*/}
+              {/*    </Button>*/}
+              {/*  </Col>*/}
             </Col>
           </Row>
         </Content>

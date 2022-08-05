@@ -80,4 +80,19 @@
 
 }
 
+/*Button style*/
+.change-password-container {
+
+}
+
+.submitButton{
+    width: 150px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    float: left;
+}
 

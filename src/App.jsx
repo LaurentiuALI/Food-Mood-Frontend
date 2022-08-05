@@ -9,8 +9,6 @@ import Home from "./pages/Home/Home";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
 
-import Test from "./pages/Test/Test";
-
 function App() {
   return (
     <div className="App">
@@ -18,8 +16,14 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/test" element={<Test />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/preferences"
