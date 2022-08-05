@@ -1,6 +1,7 @@
 import { LeftOutlined } from "@ant-design/icons";
 import { Button, Layout, Typography } from "antd";
 import { Content, Footer, Header } from "antd/lib/layout/layout";
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BackgroundTemplate from "../../common/templates/BackgroundTemplate";
@@ -45,10 +46,19 @@ const GlobalPreferences = () => {
 
   const navigate = useNavigate();
   const onHome = () => {
-    // navigate("/home");
+    navigate("/home");
 
     //pass chosen pref to restaurant page
-    navigate("/home", { state: { pref: checkedItems } });
+    // navigate("/home", { state: { pref: checkedItems } });
+  };
+  const updatePreferences = async () => {
+    const token = JSON.parse(sessionStorage.getItem("user")).access_token;
+    await axios.put("http://localhost:3000/auth/profile2", preferences, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    onHome();
   };
 
   return (
@@ -103,15 +113,15 @@ const GlobalPreferences = () => {
             <div>{`Preferences checked: ${checkedItems}`}</div>
 
             <div className="chk-group-wrapper">
-              {ListOfGlobalPreferences.map(({name}, index ) => {
+              {ListOfGlobalPreferences.map(({ name }, index) => {
                 return (
                   <BtnCheckbox
-                  id={index}
-                  value={name}
-                  label={name}
-                  checked={isChecked(name)}
-                  onClick={handleCheck}
-                />
+                    id={index}
+                    value={name}
+                    label={name}
+                    checked={isChecked(name)}
+                    onClick={handleCheck}
+                  />
                 );
               })}
             </div>
@@ -119,7 +129,8 @@ const GlobalPreferences = () => {
             <div className="pref-button-container">
               <Button
                 type="primary"
-                onClick={onHome}
+                // onClick={onHome}
+                onClick={updatePreferences}
                 style={{
                   fontFamily: "Inter",
                   fontStyle: "normal",
