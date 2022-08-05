@@ -53,7 +53,7 @@ const GlobalPreferences = () => {
   };
   const updatePreferences = async () => {
     const token = JSON.parse(sessionStorage.getItem("user")).access_token;
-    await axios.put("http://localhost:3000/auth/profile2", preferences, {
+    await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/auth/profile2`, preferences, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
