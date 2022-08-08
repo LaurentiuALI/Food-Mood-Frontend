@@ -35,30 +35,102 @@
 }
 
 .home-subtitle {
-  background: url(../../assets/background_img.jpg);
-  background-size: cover;
+  // background: none;
+  // background: url(../../assets/background_img.jpg);
+  // background-size: cover;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-evenly;
+  align-content: center;
   box-sizing: border-box;
   // position: absolute;
   height: 100px;
-  border: 1px solid #7a3c2a;
-}
-
-// GRID
-[class~="ant-col"] > .img_res {
-  background: transparent;
-  // border: 0;
   border: 2px solid green;
 }
-[class~="ant-col"] > .img_res {
+
+.home-subtitle-bkg {
+  background: url(../../assets/background_img.jpg);
+  background-size: cover;
+  background-position-y: 50%;
+  filter: blur(1px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // border: 1px solid #7a3c2a;
+  border: 2px solid red;
+}
+
+.home-subtitle-text {
+  z-index: 1;
+  // font-family: "Faustina";
+  // font-style: normal;
+  // font-weight: 800;
+  // font-size: 24px;
+  // line-height: 60px;
+  text-align: center;
+  color: #3a423c;
+  // border: 1px solid #faedcd;
+  // text-shadow: 0rem 0.25rem 0.25rem rgb(0 0 0 / 25%);
+  -webkit-text-stroke: 0.1px #faedcd;
+}
+
+// .ant-typography {
+//   z-index: 1;
+// }
+
+// {z-index: 1;}
+
+// GRID
+[class~="ant-col"] > .img-res {
+  background: transparent;
+  // border: 0;
+  // border: 2px solid green;
+}
+[class~="ant-col"] > .img-res {
   height: 120px;
   font-size: 14px;
   text-align: center;
   line-height: 120px;
-  background: #0092ff;
   border-radius: 4px;
   padding: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+[class~="ant-col"] > .img-tag {
+  // padding: 5px;
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  // border: 2px solid blue;
+}
+
+[class~="ant-col"] > .img-tag > .img-tag-2 {
+  background: #f2f7f9;
+  border-radius: 20px;
+  font-size: 10px;
+  width: 70px;
+  text-align: center;
+  padding: 2px;
+  // border: 2px solid yellowgreen;
+}
+
+.img-name {
+  color: black;
+  background: rgba(242, 247, 249, 0.7);
+  border-radius: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  // border: 2px solid red;
 }
