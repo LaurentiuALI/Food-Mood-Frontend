@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import MainPageTemplate from "../../common/templates/MainPageTemplate.jsx";
-import { Button, Col, Row, Typography } from "antd";
+import { Button, Col, Modal, Row, Typography } from "antd";
 import "./Home.less";
 // import { useLocation } from "react-router-dom";
 
 import Search from "./components/Search";
 import restaurant from "../../common/dummy-data/ListOfRestaurants";
 
+import HomeMood from "./HomeMood";
+
 const { Text, Title } = Typography;
 
 const Home = () => {
   // const { state } = useLocation();
   // const { pref } = state;
+
+  const [modalMood, setModalMood] = useState(false);
 
   return (
     <div>
@@ -44,7 +48,7 @@ const Home = () => {
                     fontWeight: "700",
                     width: "12rem",
                   }}
-                  
+                  onClick={() => setModalMood(true)}
                 >
                   Mood me up
                 </Button>
@@ -54,6 +58,16 @@ const Home = () => {
           <Search details={restaurant} />
         </div>
       </MainPageTemplate>
+
+      <Modal
+        closable={false}
+        centered
+        footer={null}
+        visible={modalMood}
+        onCancel={() => setModalMood(false)}
+      >
+        <HomeMood />
+      </Modal>
     </div>
   );
 };

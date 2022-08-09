@@ -58,14 +58,17 @@ const MainPageTemplate = (props) => {
                 <Title className="title-text">FOOD MOOD</Title>
               </a>
             </div>
+
             <div className="search-box">
               <Input
                 size="small"
                 placeholder="Search"
                 suffix={<SearchOutlined />}
                 style={{ width: "25rem" }}
+                
               />
             </div>
+
             <div className="menu-buttons">
               <Link to={"/shopping-cart"}>
                 <ShoppingCartOutlined className="shopping-cart-icon" />
