@@ -95,28 +95,20 @@ const GlobalPreferences = () => {
               What is your food personality? <br /> Select from the list below
               and we’ll filter restaurants based on your preferences.
             </Text>
-            <div className="chk-group-wrapper">
+            {/* <div className="chk-group-wrapper">
               <BtnCheckbox id="test1" label="Test 1" checked={true} />
               <BtnCheckbox label="Twat 2" checked={true} disabled />
               <BtnCheckbox label="Test 3" disabled />
-              {/* {ListOfGlobalPreferences.map((item, index) => (
-                <BtnCheckbox
-                  id={index}
-                  value={item}
-                  label={item}
-                  checked={isChecked(item)}
-                  onClick={handleCheck}
-                />
-              ))} */}
-            </div>
+            </div> */}
 
-            <div>{`Preferences checked: ${checkedItems}`}</div>
+            {/* <div>{`Preferences checked: ${checkedItems}`}</div> */}
 
             <div className="chk-group-wrapper">
               {ListOfGlobalPreferences.map(({ name }, index) => {
                 return (
                   <BtnCheckbox
                     id={index}
+                    key={index}
                     value={name}
                     label={name}
                     checked={isChecked(name)}
