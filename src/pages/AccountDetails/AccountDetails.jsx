@@ -1,30 +1,39 @@
+import { useEffect, useState } from "react";
 import "./AccountDetails.css";
 import MainPageTemplate from "../../common/templates/MainPageTemplate.jsx";
 import { Content, Header } from "antd/lib/layout/layout";
-import {
-  Dropdown,
-  Input,
-  Layout,
-  Menu,
-  Typography,
-  Row,
-  Col,
-  Form,
-  Select,
-  Space,
-  Button,
-} from "antd";
-import {
-  EyeInvisibleOutlined,
-  EyeTwoTone,
-  LeftOutlined,
-} from "@ant-design/icons";
+import { Input, Typography, Row, Col, Form, Select, Button } from "antd";
+import { LeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { judete } from "src/common/data/judete.json";
+import { judete } from "../../common/data/judete.json";
 
 const { Title } = Typography;
 
 const AccountDetails = () => {
+  const [availableCounties, setAvailableCounties] = useState([]);
+  const [availableCities, setAvailableCities] = useState([]);
+  const [selectedCounty, setSelectedCounty] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+
+  const onCountySelect = (e) => {
+    setSelectedCounty(e);
+    setAvailableCities([]);
+    setSelectedCity("");
+    const cities = judete.filter((judet) => judet.nume === e)[0].localitati;
+    const citiesAscending = [...cities].sort((a, b) =>
+      a.nume > b.nume ? 1 : -1
+    );
+    setAvailableCities(citiesAscending);
+  };
+
+  const onCitySelect = (e) => {
+    setSelectedCity(e);
+  };
+
+  useEffect(() => {
+    setAvailableCounties(judete);
+  }, []);
+
   return (
     <div>
       <MainPageTemplate>
@@ -78,14 +87,30 @@ const AccountDetails = () => {
                 </Form.Item>
 
                 <Form.Item label="County">
-                  <Select>
-                    <Select.Option value="demo">Demo</Select.Option>
+                  <Select onChange={(e) => onCountySelect(e)}>
+                    {availableCounties.map((county, key) => {
+                      return (
+                        <Select.Option value={county.nume} key={key}>
+                          {county.nume}
+                        </Select.Option>
+                      );
+                    })}
                   </Select>
                 </Form.Item>
 
                 <Form.Item label="City">
-                  <Select>
-                    <Select.Option value="demo">Demo</Select.Option>
+                  <Select
+                    disabled={availableCities.length === 0}
+                    onChange={(e) => onCitySelect(e)}
+                    value={selectedCity}
+                  >
+                    {availableCities.map((city, key) => {
+                      return (
+                        <Select.Option value={city.nume} key={key}>
+                          {city.nume}
+                        </Select.Option>
+                      );
+                    })}
                   </Select>
                 </Form.Item>
               </Form>
