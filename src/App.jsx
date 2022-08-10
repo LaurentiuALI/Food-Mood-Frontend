@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import GlobalPreferences from "./pages/GlobalPreferences/GlobalPreferences";
 import Home from "./pages/Home/Home";
+import Restaurant from "./pages/Restaurant/Restaurant";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/test" element={<Test />} />
 
         <Route

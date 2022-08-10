@@ -65,7 +65,6 @@ const MainPageTemplate = (props) => {
                 placeholder="Search"
                 suffix={<SearchOutlined />}
                 style={{ width: "25rem" }}
-                
               />
             </div>
 
