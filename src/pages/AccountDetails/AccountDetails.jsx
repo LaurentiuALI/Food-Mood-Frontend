@@ -10,10 +10,19 @@ import { judete } from "../../common/data/judete.json";
 const { Title } = Typography;
 
 const AccountDetails = () => {
-  const [availableCounties, setAvailableCounties] = useState([]);
-  const [availableCities, setAvailableCities] = useState([]);
+  // Form states
+  const [userName, setUserName] = useState("Alex");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
   const [selectedCounty, setSelectedCounty] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+
+  const [availableCounties, setAvailableCounties] = useState([]);
+  const [availableCities, setAvailableCities] = useState([]);
+
+  const onUserNameEdit = (e) => setUserName(e);
+  //TODO: Make functions to set Form Field states
 
   const onCountySelect = (e) => {
     setSelectedCounty(e);
@@ -30,7 +39,10 @@ const AccountDetails = () => {
     setSelectedCity(e);
   };
 
+  //TODO: Submit button on click function to send data to backend
+
   useEffect(() => {
+    // TODO: Take information stored in database
     setAvailableCounties(judete);
   }, []);
 
@@ -71,7 +83,11 @@ const AccountDetails = () => {
                 }}
               >
                 <Form.Item label="Name">
-                  <Input className="form-input" />
+                  <Input
+                    className="form-input"
+                    defaultValue={userName}
+                    onChange={(e) => onUserNameEdit(e.target.value)}
+                  />
                 </Form.Item>
 
                 <Form.Item label="Email">
