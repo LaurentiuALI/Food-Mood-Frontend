@@ -223,6 +223,7 @@ const AccountDetails = () => {
                   <Input
                     className="form-input"
                     value={email}
+                    readOnly={true}
                     onChange={(e) => onEmailEdit(e.target.value)}
                   />
                 </Form.Item>
