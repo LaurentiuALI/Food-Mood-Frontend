@@ -10,8 +10,6 @@ import Restaurant from "./pages/Restaurant/Restaurant";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
 
-// import Test from "./pages/Test/Test";
-
 function App() {
   return (
     <div className="App">
@@ -26,6 +24,22 @@ function App() {
           element={
             <ProtectedRoute>
               <GlobalPreferences />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/restaurant"
+          element={
+            <ProtectedRoute>
+              <Restaurant />
             </ProtectedRoute>
           }
         />
