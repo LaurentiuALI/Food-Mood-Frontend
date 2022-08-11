@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MainPageTemplate from "../../common/templates/MainPageTemplate.jsx";
-import { Button, Col, Modal, Row, Typography } from "antd";
+import { Button, Col, Modal, Row, Typography, Space } from "antd";
 import "./Home.less";
 // import { useLocation } from "react-router-dom";
 
@@ -55,7 +55,8 @@ const Home = () => {
               </div>
             </Col>
           </Row>
-          <Search details={restaurant} />
+
+          <Search className="searchRestaurants" details={restaurant} />
         </div>
       </MainPageTemplate>
 
@@ -72,4 +73,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;
