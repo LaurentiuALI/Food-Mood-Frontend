@@ -20,7 +20,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
   const [isChecked, setIsChecked] = useState(false);
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const keepUserLoggedIn = () => {
@@ -31,10 +31,13 @@ const Login = () => {
     const user = { email, password };
 
     axios
-      .post(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/auth/login`, {
-        email,
-        password,
-      })
+      .post(
+        `${import.meta.env.VITE_API_URL || "http://localhost:3000"}/auth/login`,
+        {
+          email,
+          password,
+        }
+      )
       .then((response) => {
         console.log("Success");
         setErrors({});
@@ -44,11 +47,11 @@ const Login = () => {
           localStorage.setItem("user", JSON.stringify(response.data));
           setUser(response.data);
         }
-        navigate("/preferences", { replace: true });
+        navigate("/home", { replace: true });
       })
       .catch((e) => {
-        setErrors(e.response.data.message)
-        console.log("am prins eroarea: \n", e.response.data)
+        setErrors(e.response.data.message);
+        console.log("am prins eroarea: \n", e.response.data);
       });
   };
 
@@ -105,10 +108,14 @@ const Login = () => {
               <Form.Item
                 name="email"
                 value={email}
-                validateStatus={errors.hasOwnProperty("email")|| errors ? "error" : "validating"}
+                validateStatus={
+                  errors.hasOwnProperty("email") || errors
+                    ? "error"
+                    : "validating"
+                }
                 help={errors.hasOwnProperty("email") ? errors.email : null}
                 onChange={(e) => {
-                  setEmail(e.target.value)
+                  setEmail(e.target.value);
                   delete errors.email;
                 }}
               >
@@ -127,10 +134,14 @@ const Login = () => {
               <Form.Item
                 name="password"
                 value={password}
-                validateStatus={errors.hasOwnProperty("password") ? "error" : "validating"}
-                help={errors.hasOwnProperty("password") ? errors.password : null}
+                validateStatus={
+                  errors.hasOwnProperty("password") ? "error" : "validating"
+                }
+                help={
+                  errors.hasOwnProperty("password") ? errors.password : null
+                }
                 onChange={(e) => {
-                  setPassword(e.target.value)
+                  setPassword(e.target.value);
                   delete errors.password;
                 }}
               >
@@ -177,7 +188,6 @@ const Login = () => {
                   </Link>
                 </div>
               </Form.Item>
-
 
               <Form.Item style={{ marginBottom: "0rem" }}>
                 <div className="login-button-container">

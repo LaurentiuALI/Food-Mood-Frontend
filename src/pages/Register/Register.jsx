@@ -50,7 +50,6 @@ const Register = () => {
           // 👇️ redirect to /preferences
           navigate("/preferences", { replace: true });
         });
-
       })
       .catch(function (error) {
         if (error.response) {
