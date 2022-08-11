@@ -74,6 +74,31 @@
 /*.ant-col .ant-col-4 .ant-form-item-label{*/
 /*}*/
 
+/* Notification */
+.success-message{
+    font-family: 'Faustina', serif;
+    color: #3A423C;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.error-message{
+    font-family: 'Faustina', serif;
+    color: #d94216;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.ant-message-notice-content{
+    border-radius:  50px!important;
+}
+
 /*Password change settings*/
 
 .password-field-label{
