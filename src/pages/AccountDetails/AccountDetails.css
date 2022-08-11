@@ -38,16 +38,86 @@
     border-style: solid;
 }
 
+.header-grid .header-title{
+    font-family: 'Faustina', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 35px;
+    color: #7A3C2A;
+    margin-left: 20px;
+}
+
 .content-grid{
     padding-top: 20px;
     border-color: #7a3c2a;
     border-style: solid;
     border-top: none;
+    padding-left: 20px;
 }
 
 .content-grid .form-input{
     border: none;
 }
 
+.ant-form-horizontal .ant-form-item-label {
+    text-align: left;
+    margin-right: 80px;
+    font-family: 'Faustina', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #7A3C2A!important;
+}
 
+/*.ant-col .ant-col-4 .ant-form-item-label{*/
+/*}*/
+
+/* Notification */
+.success-message{
+    font-family: 'Faustina', serif;
+    color: #3A423C;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.error-message{
+    font-family: 'Faustina', serif;
+    color: #d94216;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.ant-message-notice-content{
+    border-radius:  50px!important;
+}
+
+/*Password change settings*/
+
+.password-field-label{
+
+}
+
+/*Button style*/
+.change-password-container {
+
+}
+
+.submitButton{
+    width: 150px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    float: left;
+}
 

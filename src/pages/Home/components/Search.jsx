@@ -33,16 +33,16 @@ const Search = (props) => {
   return (
     <>
       {/* <div> */}
-      <Input
-        placeholder="Search"
-        style={{
-          width: "25rem",
-        }}
-        suffix={<SearchOutlined />}
-        onChange={handleChangeSearch}
-      />
+      {/*<Input*/}
+      {/*  placeholder="Search"*/}
+      {/*  style={{*/}
+      {/*    width: "25rem",*/}
+      {/*  }}*/}
+      {/*  suffix={<SearchOutlined />}*/}
+      {/*  onChange={handleChangeSearch}*/}
+      {/*/>*/}
       {/* </div> */}
-
+      <div style={{ paddingTop: "3rem" }}></div>
       <Scroll>
         <Row gutter={[16, 16]}>
           {filteredRestaurants.map((restaurant) => (
