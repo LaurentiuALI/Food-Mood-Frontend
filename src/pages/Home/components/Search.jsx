@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Scroll from "../../../common/templates/Scroll";
 import SearchRestaurantsList from "./SearchRestaurantsList";
 
-import { Input } from "antd";
+import { Input, Row } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
-// const Search = ({ details }) => {
-function Search({ details }) {
+// function Search({ details }) {
+const Search = (props) => {
   const [searchField, setSearchField] = useState("");
   // const [searchShow, setSearchShow] = useState(false);
 
-  const filteredRestaurants = details.filter((restaurant) => {
+  const filteredRestaurants = props.details.filter((restaurant) => {
     return (
       // restaurant.name.toLowerCase().includes(searchField.toLowerCase()) ||
       // restaurant.preferences.toLowerCase().includes(searchField.toLowerCase())
@@ -30,16 +30,6 @@ function Search({ details }) {
     // }
   };
 
-  function searchList() {
-    // if (searchShow) {
-    return (
-      <Scroll>
-        <SearchRestaurantsList filteredRestaurants={filteredRestaurants} />
-      </Scroll>
-    );
-    // }
-  }
-
   return (
     <>
       {/* <div> */}
@@ -53,9 +43,21 @@ function Search({ details }) {
       />
       {/* </div> */}
 
-      {searchList()}
+      <Scroll>
+        <Row gutter={[16, 16]}>
+          {filteredRestaurants.map((restaurant) => (
+            <SearchRestaurantsList
+              key={restaurant.id}
+              id={restaurant.id}
+              name={restaurant.name}
+              img={restaurant.imageSource}
+              preferences={restaurant.preferences}
+            />
+          ))}
+        </Row>
+      </Scroll>
     </>
   );
-}
+};
 
 export default Search;

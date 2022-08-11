@@ -9,17 +9,19 @@ import ContainerBox from "../../common/templates/ContainerBox";
 import BtnCheckbox from "../../common/components/BtnCheckbox";
 import "./GlobalPreferences.less";
 import ListOfGlobalPreferences from "../../common/dummy-data/ListOfGlobalPreferences";
-import DummyDataUser from "../../common/dummy-data/DummyDataUser";
+// import DummyDataUser from "../../common/dummy-data/DummyDataUser";
 
 const { Text, Title } = Typography;
 
 const GlobalPreferences = () => {
-  // user chosen preferences (it will be useful also for account preferences)
-  const { users } = DummyDataUser;
-  let index = 0;
-  const [preferences, setPreferences] = useState(users[index].prefs);
+  // TO DO
+  // // user chosen preferences (it will be useful also for account preferences)
+  // const { users } = DummyDataUser;
+  // let index = 0;
+  // const [preferences, setPreferences] = useState(users[index].prefs);
+  // TO DO
 
-  // const [preferences, setPreferences] = useState([])
+  const [preferences, setPreferences] = useState([])
 
   // Add/Remove checked preference from list
   const handleCheck = (event) => {

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Col, Row } from "antd";
+import { Col } from "antd";
 // import { useNavigate } from "react-router-dom";
 import CartCheckbox from "../../../common/components/CartCheckbox";
 
-const SearchMealsList = ({ filteredMeals }) => {
-// const SearchMealsList = ({ filteredMeals, addToCart }) => { //TO DO Badge CART
+// const SearchMealsList = ({ filteredMeals }) => {
+const SearchMealsList = (props) => {
+  // const SearchMealsList = ({ filteredMeals, addToCart }) => { //TO DO Badge CART
 
   // const navigate = useNavigate();
   // const onClick = (res) => {
@@ -23,10 +24,8 @@ const SearchMealsList = ({ filteredMeals }) => {
 
       //TO DO Badge CART
       // setCount(count + 1);
-      // addToCart(count + 1);
     } else {
       updatedList.splice(meals.indexOf(event.target.value), 1);
-      
       //TO DO Badge CART
       // let newCount = count - 1;
       // if (newCount < 0) {
@@ -48,26 +47,25 @@ const SearchMealsList = ({ filteredMeals }) => {
   // Return classes based on whether item is checked
   var isChecked = (item) => (meals.includes(item) ? true : false);
 
-  const filteredMeal = filteredMeals.map((meal) => (
-    <Col key={meal.id} className="gutter-row" span={8}>
-      <div className="meal-card">
-        <div className="meal-name">{meal.mealName}</div>
-        <div className="meal-price">{meal.mealPrice}</div>
-        <div className="meal-descr">{meal.mealDescr}</div>
-        <div className="meal-cart">
-          <CartCheckbox
-            id={meal.id}
-            key={meal.id}
-            value={meal.mealName}
-            label={meal.mealName}
-            checked={isChecked(meal.mealName)}
-            onClick={handleCheck}
-          />
+  return (
+      <Col key={props.id} className="gutter-row" span={8}>
+        <div className="meal-card">
+          <div className="meal-name">{props.title}</div>
+          <div className="meal-price">{props.price}</div>
+          <div className="meal-descr">{props.description}</div>
+          <div className="meal-cart">
+            <CartCheckbox
+              id={props.id}
+              key={props.id}
+              value={props.title}
+              label={props.title}
+              checked={isChecked(props.title)}
+              onClick={handleCheck}
+            />
+          </div>
         </div>
-      </div>
-    </Col>
-  ));
-  return <Row gutter={[16, 16]}>{filteredMeal}</Row>;
+      </Col>
+  );
 };
 
 export default SearchMealsList;

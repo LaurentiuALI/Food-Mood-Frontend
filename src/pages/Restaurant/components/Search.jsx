@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Scroll from "../../../common/templates/Scroll";
 import SearchMealsList from "./SearchMealsList";
 
-import { Avatar, Badge, Input } from "antd";
+import { Avatar, Badge, Input, Row } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
-function Search({ details }) {
+// function Search({ details }) {
+const Search = (props) => {
   const [searchField, setSearchField] = useState("");
 
-  const filteredMeals = details.filter((meal) => {
+  const filteredMeals = props.details.filter((meal) => {
     return (
       meal.mealName.toLowerCase().match(new RegExp(searchField, "g")) ||
       meal.mealDescr.toLowerCase().match(new RegExp(searchField, "g"))
@@ -21,17 +22,6 @@ function Search({ details }) {
   const handleChangeSearch = (e) => {
     setSearchField(e.target.value);
   };
-
-  function searchList() {
-    return (
-      <Scroll>
-        <SearchMealsList
-          filteredMeals={filteredMeals}
-          // addToCart={addToCart} // TO DO badge CART
-        />
-      </Scroll>
-    );
-  }
 
   //TO DO for badge
   // const [data, setData] = useState("");
@@ -49,8 +39,8 @@ function Search({ details }) {
         {/* TO DO badge CART */}
         {/* {data} */}
         {/* <Badge count={count}>
-          <Avatar shape="square" />
-        </Badge> */}
+           <Avatar shape="square" />
+         </Badge> */}
       </div>
       <div>
         <Input
@@ -61,10 +51,22 @@ function Search({ details }) {
           suffix={<SearchOutlined />}
           onChange={handleChangeSearch}
         />
-        {searchList()}
       </div>
+      <Scroll>
+        <Row gutter={[16, 16]}>
+          {filteredMeals.map((meal) => (
+            <SearchMealsList
+              key={meal.id}
+              id={meal.id}
+              title={meal.mealName}
+              price={meal.mealPrice}
+              description={meal.mealDescr}
+            />
+          ))}
+        </Row>
+      </Scroll>
     </>
   );
-}
+};
 
 export default Search;
