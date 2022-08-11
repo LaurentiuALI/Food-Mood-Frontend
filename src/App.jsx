@@ -10,7 +10,7 @@ import Restaurant from "./pages/Restaurant/Restaurant";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
 
-import Test from "./pages/Test/Test";
+// import Test from "./pages/Test/Test";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/test" element={<Test />} />
+        {/* <Route path="/test" element={<Test />} /> */}
 
         <Route
           path="/preferences"
