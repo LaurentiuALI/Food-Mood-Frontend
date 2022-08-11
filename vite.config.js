@@ -12,6 +12,11 @@ export default ({ mode }) => {
   return defineConfig({
     plugins: [react()],
     server: {
+      host: true,
+      port: process.env.VITE_PORT || 5173
+    },
+    preview: {
+      host: true,
       port: process.env.VITE_PORT || 5173
     },
     css: {
