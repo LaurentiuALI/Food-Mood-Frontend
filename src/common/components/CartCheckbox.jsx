@@ -1,12 +1,13 @@
 import { useState } from "react";
-import "./BtnCheckbox.less";
+import "./CartCheckbox.less";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
-const BtnCheckbox = ({ id, label, checked, ...props }) => {
+const CartCheckbox = ({ id, label, checked, ...props }) => {
   const defaultChecked = checked ? checked : false;
   const [isChecked, setIsChecked] = useState(defaultChecked);
 
     return (
-      <div className="btnCheckBox">
+      <div className="cartCheckBox">
         <label>
           <input
             id={id}
@@ -16,11 +17,11 @@ const BtnCheckbox = ({ id, label, checked, ...props }) => {
             {...props}
             // className={isChecked ? "checked" : ""}
           />
-          <span>{label}</span>
+          <span><ShoppingCartOutlined /></span>
         </label>
         {/* <p>{isChecked ? "Selected" : "Unchecked"}</p> */}
       </div>
     );
 };
 
-export default BtnCheckbox;
+export default CartCheckbox;
