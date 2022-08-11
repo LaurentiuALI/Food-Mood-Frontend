@@ -6,8 +6,11 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import GlobalPreferences from "./pages/GlobalPreferences/GlobalPreferences";
 import Home from "./pages/Home/Home";
+import Restaurant from "./pages/Restaurant/Restaurant";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
+
+// import Test from "./pages/Test/Test";
 
 function App() {
   return (
