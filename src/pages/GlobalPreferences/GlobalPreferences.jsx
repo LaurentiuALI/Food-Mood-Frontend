@@ -9,17 +9,19 @@ import ContainerBox from "../../common/templates/ContainerBox";
 import BtnCheckbox from "../../common/components/BtnCheckbox";
 import "./GlobalPreferences.less";
 import ListOfGlobalPreferences from "../../common/dummy-data/ListOfGlobalPreferences";
-import DummyDataUser from "../../common/dummy-data/DummyDataUser";
+// import DummyDataUser from "../../common/dummy-data/DummyDataUser";
 
 const { Text, Title } = Typography;
 
 const GlobalPreferences = () => {
-  // user chosen preferences (it will be useful also for account preferences)
-  const { users } = DummyDataUser;
-  let index = 0;
-  const [preferences, setPreferences] = useState(users[index].prefs);
+  // TO DO
+  // // user chosen preferences (it will be useful also for account preferences)
+  // const { users } = DummyDataUser;
+  // let index = 0;
+  // const [preferences, setPreferences] = useState(users[index].prefs);
+  // TO DO
 
-  // const [preferences, setPreferences] = useState([])
+  const [preferences, setPreferences] = useState([])
 
   // Add/Remove checked preference from list
   const handleCheck = (event) => {
@@ -95,28 +97,20 @@ const GlobalPreferences = () => {
               What is your food personality? <br /> Select from the list below
               and we’ll filter restaurants based on your preferences.
             </Text>
-            <div className="chk-group-wrapper">
+            {/* <div className="chk-group-wrapper">
               <BtnCheckbox id="test1" label="Test 1" checked={true} />
               <BtnCheckbox label="Twat 2" checked={true} disabled />
               <BtnCheckbox label="Test 3" disabled />
-              {/* {ListOfGlobalPreferences.map((item, index) => (
-                <BtnCheckbox
-                  id={index}
-                  value={item}
-                  label={item}
-                  checked={isChecked(item)}
-                  onClick={handleCheck}
-                />
-              ))} */}
-            </div>
+            </div> */}
 
-            <div>{`Preferences checked: ${checkedItems}`}</div>
+            {/* <div>{`Preferences checked: ${checkedItems}`}</div> */}
 
             <div className="chk-group-wrapper">
               {ListOfGlobalPreferences.map(({ name }, index) => {
                 return (
                   <BtnCheckbox
                     id={index}
+                    key={index}
                     value={name}
                     label={name}
                     checked={isChecked(name)}

@@ -24,26 +24,32 @@ const Register = () => {
   const [password, setPassword] = useState();
   const [passwordConfirmation, setPasswordConfirmation] = useState();
   const [errors, setErrors] = useState({});
-
   const navigate = useNavigate();
 
   const onRegister = () => {
     axios
-      .post(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/auth/register`, {
-        name: name,
-        email: email,
-        phoneNumber: phone,
-        password: password,
-        passwordConfirmation: passwordConfirmation
-      })
+      .post(
+        `${
+          import.meta.env.VITE_API_URL || "http://localhost:3000"
+        }/auth/register`,
+        {
+          name: name,
+          email: email,
+          phoneNumber: phone,
+          password: password,
+          passwordConfirmation: passwordConfirmation,
+        }
+      )
       .then((response) => {
         setErrors({});
         console.log("Success ✅");
         console.log(response);
-        // 👇️ clearing input values after submit
-        form.resetFields();
-        // 👇️ redirect to /preferences
-        navigate('/preferences');
+
+        onLogin(response.data.email, password).then((response) => {
+          sessionStorage.setItem("user", JSON.stringify(response.data));
+          // 👇️ redirect to /preferences
+          navigate("/preferences", { replace: true });
+        });
       })
       .catch(function (error) {
         if (error.response) {
@@ -55,13 +61,26 @@ const Register = () => {
       });
   };
 
+  const onLogin = async (email, password) => {
+    const user = { email, password };
+    return await axios.post(
+      `${import.meta.env.VITE_API_URL || "http://localhost:3000"}/auth/login`,
+      {
+        email,
+        password,
+      }
+    );
+  };
+
   // // test without create a new user
   // const onRegister = (data) => {
   //   console.log("✅ Success:", data);
   //   // 👇️ redirect to /preferences
-  //   navigate("/preferences");
+  //   // navigate("/preferences");
+  //   navigate("/preferences", { replace: false });
+  //   console.log("✅ Success:", navigate);
   //   // 👇️ clearing input values after submit
-  //   form.resetFields();
+  //   // form.resetFields();
   // };
 
   // const onRegister = (values) => {
@@ -117,10 +136,12 @@ const Register = () => {
               <Form.Item
                 name="name"
                 value={name}
-                validateStatus={errors.hasOwnProperty("name") ? "error" : "validating"}
+                validateStatus={
+                  errors.hasOwnProperty("name") ? "error" : "validating"
+                }
                 help={errors.hasOwnProperty("name") ? errors.name : null}
                 onChange={(e) => {
-                  setName(e.target.value)
+                  setName(e.target.value);
                   delete errors.name;
                 }}
               >
@@ -130,10 +151,12 @@ const Register = () => {
               <Form.Item
                 name="email"
                 value={email}
-                validateStatus={errors.hasOwnProperty("email") ? "error" : "validating"}
+                validateStatus={
+                  errors.hasOwnProperty("email") ? "error" : "validating"
+                }
                 help={errors.hasOwnProperty("email") ? errors.email : null}
                 onChange={(e) => {
-                  setEmail(e.target.value)
+                  setEmail(e.target.value);
                   delete errors.email;
                 }}
               >
@@ -146,10 +169,16 @@ const Register = () => {
               <Form.Item
                 name="phone"
                 value={phone}
-                validateStatus={errors.hasOwnProperty("phoneNumber") ? "error" : "validating"}
-                help={errors.hasOwnProperty("phoneNumber") ? errors.phoneNumber : null}
+                validateStatus={
+                  errors.hasOwnProperty("phoneNumber") ? "error" : "validating"
+                }
+                help={
+                  errors.hasOwnProperty("phoneNumber")
+                    ? errors.phoneNumber
+                    : null
+                }
                 onChange={(e) => {
-                  setPhone(e.target.value)
+                  setPhone(e.target.value);
                   delete errors.phoneNumber;
                 }}
               >
@@ -164,10 +193,14 @@ const Register = () => {
               <Form.Item
                 name="password"
                 value={password}
-                validateStatus={errors.hasOwnProperty("password") ? "error" : "validating"}
-                help={errors.hasOwnProperty("password") ? errors.password : null}
+                validateStatus={
+                  errors.hasOwnProperty("password") ? "error" : "validating"
+                }
+                help={
+                  errors.hasOwnProperty("password") ? errors.password : null
+                }
                 onChange={(e) => {
-                  setPassword(e.target.value)
+                  setPassword(e.target.value);
                   delete errors.password;
                 }}
               >
@@ -180,10 +213,18 @@ const Register = () => {
               <Form.Item
                 name="passwordConfirmation"
                 value={passwordConfirmation}
-                validateStatus={errors.hasOwnProperty("passwordConfirmation") ? "error" : "validating"}
-                help={errors.hasOwnProperty("passwordConfirmation") ? errors.passwordConfirmation : null}
+                validateStatus={
+                  errors.hasOwnProperty("passwordConfirmation")
+                    ? "error"
+                    : "validating"
+                }
+                help={
+                  errors.hasOwnProperty("passwordConfirmation")
+                    ? errors.passwordConfirmation
+                    : null
+                }
                 onChange={(e) => {
-                  setPasswordConfirmation(e.target.value)
+                  setPasswordConfirmation(e.target.value);
                   delete errors.passwordConfirmation;
                 }}
               >

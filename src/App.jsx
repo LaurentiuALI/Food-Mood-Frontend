@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import GlobalPreferences from "./pages/GlobalPreferences/GlobalPreferences";
 import Home from "./pages/Home/Home";
+import Restaurant from "./pages/Restaurant/Restaurant";
 import ProtectedRoute from "./common/protected-route/ProtectedRoute";
 import AccountDetails from "./pages/AccountDetails/AccountDetails.jsx";
 
@@ -30,6 +31,22 @@ function App() {
           element={
             <ProtectedRoute>
               <GlobalPreferences />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/restaurant"
+          element={
+            <ProtectedRoute>
+              <Restaurant />
             </ProtectedRoute>
           }
         />
