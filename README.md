@@ -9,17 +9,13 @@
 <h1 align="center">Foodmood Web</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/LaurentiuALI/foodmood-web?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/LaurentiuALI/Food-Mood-Frontend?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/LaurentiuALI/foodmood-web?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/LaurentiuALI/Food-Mood-Frontend?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/LaurentiuALI/foodmood-web?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/LaurentiuALI/Food-Mood-Frontend?color=56BEB8">
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/foodmood-web?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/foodmood-web?color=56BEB8" /> -->
-
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/foodmood-web?color=56BEB8" /> -->
 </p>
 
 <!-- Status -->
