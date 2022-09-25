@@ -46,24 +46,27 @@
 
 ## :dart: About ##
 
-Describe your project
+The frontend of the Food Mood, a food delivery Web Application.
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
-
+:heavy_check_mark: Custom Error Messages for Sign-up fields and Login field;\
+:heavy_check_mark: Fully implemented authentication, including Logout option;\
+:heavy_check_mark: Protected Routes that can be navigable only by logged user;
+:heavy_check_mark: Account details update option;
+:heavy_check_mark: Set global preferences when creating account based on user preferences;
+:heavy_check_mark: Preview Restaurants;
+:heavy_check_mark: Preview Menu;
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-
+- [Nest.js](https://nestjs.com/)
+- [Less](https://lesscss.org/)
+- [Vite](https://vitejs.dev/)
 ## :white_check_mark: Requirements ##
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
@@ -72,26 +75,21 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/foodmood-web
+$ git clone https://github.com/LaurentiuALI/Food-Mood-Frontend.git
 
 # Access
 $ cd foodmood-web
 
 # Install dependencies
-$ yarn
+$ npm install
 
 # Run the project
-$ yarn start
+$ npm run dev
 
-# The server will initialize in the <http://localhost:3000>
+# The server will initialize in the <http://localhost:5173>
 ```
 
-## :memo: License ##
-
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/LaurentiuALI" target="_blank">Laurentiu Andoni</a>
 
 &#xa0;
 
