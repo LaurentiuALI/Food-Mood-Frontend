@@ -45,10 +45,10 @@ The frontend of the Food Mood, a food delivery Web Application.
 
 :heavy_check_mark: Custom Error Messages for Sign-up fields and Login field;\
 :heavy_check_mark: Fully implemented authentication, including Logout option;\
-:heavy_check_mark: Protected Routes that can be navigable only by logged user;
-:heavy_check_mark: Account details update option;
-:heavy_check_mark: Set global preferences when creating account based on user preferences;
-:heavy_check_mark: Preview Restaurants;
+:heavy_check_mark: Protected Routes that can be navigable only by logged user;\
+:heavy_check_mark: Account details update option;\
+:heavy_check_mark: Set global preferences when creating account based on user preferences;\
+:heavy_check_mark: Preview Restaurants;\
 :heavy_check_mark: Preview Menu;
 ## :rocket: Technologies ##
 
